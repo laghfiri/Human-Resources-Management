@@ -1,0 +1,181 @@
+<app-nav-bar></app-nav-bar>
+<div>
+
+  <div class="header-tool">
+    <br>
+
+    <div style="text-align: center">
+      <img src="../../assets/map.png" alt="">
+      <br>
+      Pointage de Presence
+    </div>
+
+    <hr class="separator">
+  </div>
+
+  <br>
+
+  <div class="container" *ngIf="mode==0">
+
+    <div class="panel panel-default">
+      <div class="panel-title" style="text-align: center;font-weight: 500;color: #3f51b5;">Recherher Pointage</div>
+      <div class="panel-body">
+
+        <div class="col-sm-6">
+          <div class="col-padding" style="text-align: center">
+            <h5 style="text-align: center">Par Date</h5>
+            <form>
+              <mat-form-field class="example-form-field">
+                <input matInput [matDatepicker]="picker1"  [(ngModel)]="date"  name="date" placeholder="Date de Presence">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field><br>
+              <button mat-raised-button color="primary" (click)="chercher()"><i class="fas fa-search"></i> Rechercher
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="no-more-tables">
+          <table class="table table-hover table-striped table-bordered nowrap" style="margin-top: 10px;width:100%">
+            <thead>
+            <tr>
+              <th scope="col">#Matricule</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Service</th>
+              <th scope="col">date de Presence</th>
+              <th scope="col">Heure de Debut Premiere Post </th>
+              <th scope="col">Heure de Fin Premiere Post </th>
+              <th scope="col">Heure de Debut Deuxieme Post </th>
+              <th scope="col">Heure de Fin Deuxieme Post </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let p of pagePresences?.content">
+             <td data-title="idP">{{p[1].idP}}</td>
+              <td data-title="nom">{{p[0].nom}}</td>
+              <td data-title="prenom">{{p[0].prenom}}</td>
+              <td data-title="service">{{p[0].service}}</td>
+              <td data-title="dateP">{{p[1].datePresence}}</td>
+              <td data-title="heureD">{{p[1].heureDpre}}</td>
+              <td data-title="heureF">{{p[1].heureFpre}}</td>
+              <td data-title="heureD">{{p[1].heureDdeu}}</td>
+              <td data-title="heureF">{{p[1].heureFdeu}}</td>
+
+            </tr>
+            </tbody>
+          </table>
+          <button mat-raised-button color="primary" (click)="mode=1" style="align-content: right"><i
+            class="fas fa-user-plus"></i>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-footer" style="text-align: center">
+      <nav style="position: center;cursor: pointer">
+        <ul class="pagination">
+          <li class="page-item " [ngClass]="{'disabled':page==0}">
+            <a class="page-link" (click)="gotoPage(page-1)">Précédent</a>
+          </li>
+          <li class="page-item" *ngFor="let p of pages;let i=index" [ngClass]="{'active':page==i}">
+            <a class="page-link " (click)="gotoPage(i)">{{i}}</a>
+          </li>
+          <li class="page-item" [ngClass]="{'disabled':page==ArrayS-1}">
+            <a class="page-link" (click)="gotoPage(page+1)">Suivant</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+    <div class="container" *ngIf="mode==1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Ajouter Pointage
+        </div>
+        <div class="panel-body">
+          <mat-horizontal-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+            <mat-step [stepControl]="firstFormGroup" [editable]="true">
+              <form [formGroup]="firstFormGroup" >
+                <ng-template matStepLabel>Information de Pointage</ng-template>
+                <div style="text-align: center">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                  <mat-select formControlName="serviceMot" [(ngModel)]="serviceMot" placeholder="Service" (ngModelChange)="chargerEmpbyService()" required>
+                    <mat-option  value="Informatique">
+                      Informatique
+                    </mat-option>
+                    <mat-option  value="Chimie">
+                      Chimie
+                    </mat-option>
+                    <mat-option  value="Securite">
+                      Securite
+                    </mat-option>
+                    <mat-option  value="Mecanique">
+                      Mecanique
+                    </mat-option>
+                    <mat-option  value="Gestion de Stock">
+                      Gestion de Stock
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="">Please choose a service</mat-error>
+                </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: center">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <mat-select formControlName="emp_id" [(ngModel)]="emp_id" placeholder="Nom et Prenom d'Employe" required>
+                          <mat-option  *ngFor="let c of pageEmployes?.content" value="{{c.matricule}}">
+                            {{ c.nom }} {{ c.prenom }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="">Please choose an Employe</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: center">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field  class="example-form-field" [class.app-input-no-underline]="!showUnderline">
+                        <input matInput hidden="true"  style="display:none;background-color: transparent;" formControlName="choix" [(ngModel)]="choix" >
+                        <mat-radio-group  class="example-radio-group" formControlName="choix" [(ngModel)]="choix">
+                          <mat-radio-button class="example-radio-button" value="1">Entre 1er poste</mat-radio-button>
+                          <mat-radio-button class="example-radio-button" value="2">Sortie 1er poste</mat-radio-button>
+                          <mat-radio-button class="example-radio-button" value="3">Entre 2eme poste</mat-radio-button>
+                          <mat-radio-button class="example-radio-button" value="4">Sortie 2eme poste</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error *ngIf="">Please choose a choix</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                  <div>
+                    <div style="text-align: center">
+                      <button mat-raised-button color="primary" (click)="traitement()" class="spacer">Confirmer</button>
+                    </div>
+                  </div>
+              </form>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <div style="text-align: right">
+            <button mat-raised-button (click)="mode=0" style="text-align: right">
+              Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

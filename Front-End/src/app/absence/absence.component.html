@@ -1,0 +1,84 @@
+<app-nav-bar></app-nav-bar>
+<div class="header-tool">
+  <br>
+  <div style="text-align: center">
+    <img src="../../assets/pencil.svg" style="height: 64px;
+    width: 64px;">
+    <h4>Vérification et génération d'absence du Jour </h4>
+
+  </div>
+  <hr class="separator">
+</div>
+
+<br>
+<div class="container" style="text-align: center" *ngIf="!dataLoaded">
+  <mat-spinner style="margin:0 auto;"></mat-spinner>
+  <h5 style="color: #0f4b9f">Chargement...</h5>
+</div>
+<div *ngIf="dataLoaded">
+<div class="container">
+  <h4 style="text-align: center">Absence d'aujourdh'ui</h4>
+  <!--<div class="col-md-12 ">
+    <div class="note"  style="text-align: center">
+
+      <h5> Enregistrer les donnés de pointage est vérifier les absence </h5>
+       <button mat-raised-button color="primary" (click)="generateAbsence()"> <i class="fas fa-play-circle fa-lg" style="color: white"></i> Enregistrer</button>
+      <br>
+      <br>
+    </div>
+    <div class="note" >
+      Generation d'absence affectué!
+    </div>
+    <div class="col-md-4 col-md-offset-4" >
+      <h5>Vérification est en cours </h5>
+     <mat-spinner></mat-spinner>
+    </div>
+    <div class="col-md-12" *ngIf="show">
+      <h4 style="text-align: center"> Statistique du jour </h4>
+      <p>Nombre des pointage effectué Aujourd'hui : </p>
+      <p>Nombre des employees absenté   Aujourd'hui: 15 </p>
+      <p></p>
+    </div>
+  </div>-->
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <div style="text-align: center;">
+        <p><strong>- Nombre d'absence : </strong>{{ListAbsence.length}} <small>Personne</small></p>
+      </div>
+
+
+      <div class="panel-body">
+        <div *ngIf="ListAbsence.length==0"><h5 style="color: #0f4b9f;text-align: center">Aucune absence est marqué aujourd'hui</h5></div>
+        <div id="no-more-tables" *ngIf="ListAbsence.length>0">
+
+
+          <table class="table table-hover table-striped table-bordered nowrap" style="margin-top: 10px;width:100%">
+            <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Service</th>
+              <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of ListAbsence">
+              <td data-title="Nom">{{c.nom}}</td>
+              <td data-title="Prenom">{{c.prenom}}</td>
+              <td data-title="Service">{{c.service}}</td>
+              <td data-title="Email">{{c.email}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+<router-outlet></router-outlet>

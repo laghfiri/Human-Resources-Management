@@ -1,0 +1,234 @@
+<app-nav-bar></app-nav-bar>
+<div>
+
+  <div class="header-tool">
+    <br>
+
+    <div style="margin-left: 45%">
+      <i class="fas fa-users fa-3x"></i>
+      Gestion Stagiaire
+    </div>
+
+    <hr class="separator">
+  </div>
+
+  <br>
+
+  <div class="container" *ngIf="mode==0">
+
+    <div class="panel panel-default">
+      <div class="panel-title" style="text-align: center;font-weight: 500;color: #3f51b5;">Recherher Stagiaire</div>
+      <div class="panel-body">
+
+        <div class="col-sm-6">
+          <div class="col-padding" style="text-align: center">
+            <h5 style="text-align: center">Par Nom</h5>
+            <form>
+              <mat-form-field style="margin-right: 30px">
+                <input matInput placeholder="Search" [(ngModel)]="motCle"  name="motCle">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="chercher()"><i class="fas fa-search"></i> Rechercher
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="no-more-tables">
+          <table class="table table-hover table-striped table-bordered nowrap" style="margin-top: 10px;width:100%">
+            <thead>
+            <tr>
+              <th scope="col">Matricule</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Service</th>
+              <th scope="col"> CV </th>
+              <th scope="col">Etat du Demande </th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let s of pageStagiaires?.content">
+              <td data-title="idS">{{s.idS}}</td>
+              <td data-title="nom">{{s.nom}}</td>
+              <td data-title="prenom">{{s.prenom}}</td>
+              <td data-title="service">{{s.service}}</td>
+
+              <td data-title="CV" *ngIf="!s.cv==''"><a href="http://localhost:8080/files/{{s.cv}}" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a> </td>
+              <td data-title="CV" *ngIf="s.cv==''">pas d'attachement</td>
+
+              <td data-title="demandeStage" *ngIf="!s.demandeStage==''"><a href="http://localhost:8080/files/{{s.demandeStage}}" class="btn btn-default btn-sm float-right"><i class="fa fa-cloud-download"></i></a></td>
+              <td data-title="demandeStage" *ngIf="s.demandeStage==''">pas d'attachement</td>
+
+              <td data-title="etatDemande" *ngIf="s.etatDemande==2">Accepte</td>
+              <td data-title="etatDemande" *ngIf="s.etatDemande==1">Refuse</td>
+              <td data-title="etatDemande" *ngIf="s.etatDemande==0">en cours</td>
+              <td data-title="Action">
+                <a (click)="openDialog(s.idS,s.nom)"><i class="far fa-trash-alt fa-lg" style="cursor: pointer;color: red"></i></a>
+            </tr>
+            </tbody>
+          </table>
+          <button mat-raised-button color="primary" (click)="mode=1" style="align-content: right"><i class="fas fa-user-plus"></i>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-footer" style="text-align: center">
+      <nav style="position: center;cursor: pointer">
+        <ul class="pagination">
+          <li class="page-item " [ngClass]="{'disabled':page==0}">
+            <a class="page-link" (click)="gotoPage(page-1)">Précédent</a>
+          </li>
+          <li class="page-item" *ngFor="let p of pages;let i=index" [ngClass]="{'active':page==i}">
+            <a class="page-link " (click)="gotoPage(i)">{{i + 1}}</a>
+          </li>
+          <li class="page-item" [ngClass]="{'disabled':page==ArrayS-1}">
+            <a class="page-link" (click)="gotoPage(page+1)">Suivant</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div>
+    <div class="container" *ngIf="mode==1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Ajouter Stagiaire
+        </div>
+        <div class="panel-body">
+          <mat-horizontal-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+            <mat-step [stepControl]="firstFormGroup" [editable]="true">
+              <form [formGroup]="firstFormGroup" >
+                <ng-template matStepLabel>Information Personelle</ng-template>
+                <div style="text-align: center">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput placeholder="Nom" formControlName="nom" required>
+                        <button mat-button *ngIf="nom.value" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="nom.reset()">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-hint></mat-hint>
+                        <mat-error *ngIf="nom.errors && !nom.hasError('required')">
+                          nom trés court
+                        </mat-error>
+                        <mat-error *ngIf="nom.hasError('required')">
+                          nom est <strong>requis</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput placeholder="Prenom" formControlName="prenom" required>
+                        <button mat-button *ngIf="prenom.value" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="prenom.reset()">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-hint></mat-hint>
+                        <mat-error *ngIf="prenom.errors && !prenom.hasError('required')">
+                          prenom trés court
+                        </mat-error>
+                        <mat-error *ngIf="prenom.hasError('required')">
+                          prenom est <strong>requis</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <mat-form-field class="example-form-field">
+                          <mat-select formControlName="service" placeholder="Service"  required>
+                            <mat-option  value="Informatique">
+                              Informatique
+                            </mat-option>
+                            <mat-option  value="Chimie">
+                              Chimie
+                            </mat-option>
+                            <mat-option  value="Securite">
+                              Securite
+                            </mat-option>
+                            <mat-option  value="Mecanique">
+                              Mecanique
+                            </mat-option>
+                            <mat-option  value="Gestion de Stock">
+                              Gestion de Stock
+                            </mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="">Please choose a service</mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+
+                    <div class="col-md-6 col-md-offset-3">
+                      <div *ngIf="currentFileUpload1">
+
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                             attr.aria-valuenow="{{progress1.percentage1}}"
+                             aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress1.percentage1+'%'}">
+                          {{progress1.percentage1}}%
+                        </div>
+                      </div>
+
+                      <label style="color: #1ca64c" *ngIf="progress1.percentage1==100">Le CV est bien chargé.</label>
+                      <br>
+                      <label class="btn btn-default">
+                        <input type="file" (change)="selectFile1($event)">
+                      </label>
+                      <button mat-raised-button [disabled]="!selectedFiles1"
+                              (click)="uploadCV()">Upload
+                      </button>
+                    </div>
+                  </div>
+                    <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                      <div *ngIf="currentFileUpload2">
+
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                             attr.aria-valuenow="{{progress2.percentage2}}"
+                             aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress2.percentage2+'%'}">
+                          {{progress2.percentage2}}%
+                        </div>
+                      </div>
+
+                      <label style="color: #1ca64c" *ngIf="progress2.percentage2==100">Le demande du Stage est bien chargé.</label>
+                      <br>
+                      <label class="btn btn-default">
+                        <input type="file" (change)="selectFile2($event)">
+                      </label>
+                      <button mat-raised-button [disabled]="!selectedFiles2"
+                              (click)="uploadDemandeStage()">Upload
+                      </button>
+                    </div>
+
+                  </div>
+
+                </div>
+              </form>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <div style="text-align: right">
+
+              <div style="text-align: center">
+                <button mat-raised-button color="primary" (click)="saveStag()" class="spacer">Confirmer</button>
+              </div>
+
+            <button mat-raised-button (click)="mode=0" style="text-align: right">
+              Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

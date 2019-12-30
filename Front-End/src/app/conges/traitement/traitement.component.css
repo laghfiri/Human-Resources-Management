@@ -1,0 +1,22 @@
+.contentContainerBordered {
+  padding: 10px 42px 36px;
+  border: 1px solid #3479b8;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: relative;
+}
+.tr-item{
+  border: 1px solid #ccc;
+  font-family: PayPal-Sans;
+  font-weight: 500;
+  margin: 0 0px 2px 0;
+  text-align: center;
+}
+.td-item{
+  border: none;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  white-space: normal;
+  text-align: left!important;
+  text-indent: 57px;
+}

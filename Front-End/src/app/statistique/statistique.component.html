@@ -1,0 +1,46 @@
+<app-nav-bar></app-nav-bar>
+<div>
+
+  <div class="header-tool">
+    <br>
+
+    <div style="margin-left: 45%">
+      <i class="fas fa-users fa-3x"></i>
+      Statistique
+    </div>
+
+    <hr class="separator">
+  </div>
+
+
+
+
+
+
+
+</div>
+
+<div>
+<div>
+  <h3>Nombre des employes inscrit mensuellement</h3>
+
+</div>
+
+  <div style="height: 70% ; width: 80% ;padding-left: 15%">
+
+<div style="display: block" class="chart-wrapper">
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [colors]="barChartColors"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
+    </div>
+<br><br><br><br><br><br><br>
+  <p></p><p></p><p></p><p></p><p></p><p></p>
+</div>
+

@@ -1,0 +1,40 @@
+<app-nav-bar></app-nav-bar>
+<div>
+
+  <div class="header-tool">
+    <br>
+
+    <div style="margin-left: 45%">
+      <i class="fas fa-users fa-3x"></i>
+      Statistique des services
+    </div>
+
+    <hr class="separator">
+  </div>
+
+
+
+
+
+
+
+</div>
+
+<div>
+  <div>
+    <h3>Nombre des employes par service</h3>
+
+  </div>
+  <div style="height: 80% ; width: 80% ;padding-left: 15%">
+
+  <div class="chart-wrapper">
+    <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+    </canvas>
+  </div>
+  </div>
+  <br><br><br><br><br><br><br>
+</div>
+

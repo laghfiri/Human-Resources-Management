@@ -1,0 +1,95 @@
+<html lang="en" id="mybar">
+<head>
+
+  <meta charset="utf-8">
+  <title>RhEnsaj</title>
+  <base href="/">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Mono:300" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,900|Poppins:300,400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+   <!-- jQuery CDN -->
+  <script src="assets/jquery-1.12.0.min.js"></script>
+  <!-- Bootstrap Js CDN -->
+  <!--<script src="assets/bootstrap.min.js"></script>-->
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="assets/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="assets/bars.js"></script>
+  <style>
+    #weatherWidget .currentDesc {
+      color: #ffffff!important;
+    }
+    .traffic-chart {
+      min-height: 335px;
+    }
+    #flotPie1  {
+      height: 150px;
+    }
+    #flotPie1 td {
+      padding:3px;
+    }
+    #flotPie1 table {
+      top: 20px!important;
+      right: -10px!important;
+    }
+    .chart-container {
+      display: table;
+      min-width: 270px ;
+      text-align: left;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    #flotLine5  {
+      height: 105px;
+    }
+
+    #flotBarChart {
+      height: 150px;
+    }
+    #cellPaiChart{
+      height: 160px;
+    }
+
+  </style>
+  <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+  </script>
+  <script type = "text/javascript">
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.load('current', {packages: ['corechart','bar']});
+
+  </script>
+
+  </head>
+  <body style="font-family: 'PayPal-Sans';" id="body">
+
+  <app-root></app-root>
+
+  <!--  Chart js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+
+  <!--Chartist Chart-->
+  <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
+  <script src="assets/js/init/weather-init.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+  <script src="assets/js/init/fullcalendar-init.js"></script>
+
+
+  </body>
+  </html>
+

@@ -1,0 +1,65 @@
+<div class="header-tool">
+  <br>
+  <div style="text-align: center">
+    <img src="../../../assets/todo.png" >
+    <h4>Traitement des demandes de congés</h4>
+
+  </div>
+  <hr class="separator">
+</div>
+<br>
+<div class="container" >
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Traitement des demandes
+    </div>
+
+    <div class="panel-body">
+
+      <h4 style="text-align: center;color: #0f4b9f;text-transform: uppercase">Les demandes de cette semaine </h4>
+      <div *ngFor="let c  of pageConges?.content">
+
+        <div class="col-md-4 tr-item" *ngIf="c[0].status==0 || c[0].status==1 ">
+          <h5 style="color: #0f4b9f; ">
+            Demande Numéro : {{c[0].idC}}
+          </h5>
+          <div class="col-md-12">
+            <hr style="border: 1px solid #ccc;width: 100%">
+            <div class="td-item">
+              + Nom : <strong>{{c[1].nom +"  "+c[1].prenom}}</strong>
+            </div>
+            <div class="td-item">
+              + Date debut : <strong> {{c[0].dateDebut}}</strong>
+            </div>
+            <div class="td-item">
+              + Date fin : <strong> {{c[0].dateFin}}</strong>
+            </div>
+            <div class="td-item">
+              + Duree : <strong> {{c[0].dure}} Jour(s)</strong>
+            </div>
+            <div class="td-item">
+              + Type : <strong> {{c[0].type}}</strong>
+            </div>
+            <div class="td-item">
+              + Attachment : <button mat-raised-button matTooltip="Voir l'attachemnt"   (click)="open('http://localhost:8080/files/'+c[0].attachement)"><i class="fas fa-paperclip fa-lg"></i> Voir</button>
+            </div>
+            <div class="td-item" *ngIf="currentUser.accesMod=='director'">
+              + Actions :
+              <button mat-icon-button matTooltip="Accepté"  (click)="accepter(c[0],c[1])"><i class="fas fa-check fa-lg " style="color: #1ca64c"></i></button>
+              <button   mat-icon-button  matTooltip="Refusé" (click)="openDialog(c[0])"><i class="fas fa-close fa-lg" style="color: crimson"></i></button>
+              <button mat-icon-button matTooltip="Imprimer" (click)="imprimer(c[0],c[1])"><i class="fas fa-file-pdf fa-lg" style="color: #0f4b9f"></i></button>
+            </div>
+            <div class="td-item" *ngIf="currentUser.accesMod=='rh'">
+              + Actions RH :
+              <button mat-raised-button matTooltip="Transferer"   (click)="PassToDirector(c[0])" ><i class="fas fa-redo fa-lg "  ></i> Transferé</button>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

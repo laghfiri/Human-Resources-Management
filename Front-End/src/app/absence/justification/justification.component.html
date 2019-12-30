@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+<div class="header-tool">
+  <br>
+  <div style="text-align: center">
+    <img src="../../assets/pencil.svg" style="height: 64px;
+    width: 64px;">
+    <h4> Justification d'absence </h4>
+
+  </div>
+  <hr class="separator">
+</div>
+<br>
+<div class="container">
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <h2 style="text-align: center">Justification</h2>
+    <div class="note-text" style="text-align: center">
+      Veuillez télécharger une piece de justification de votre absence.<br>
+      Exemple des pièces recommandé pour la justification :
+      <div style="width: 800px;margin: 0 auto;" >
+      <p> - Certificat médical .</p>
+      <p> - Certificat de</p>
+      </div>
+      <br>
+      <hr class="separator" style="border-top: 1px solid  #0f4b9f;width: 50%">
+      <br>
+      Séléctionez un fichier :
+      <label class="btn btn-default" style="    display: inline-flex;align-items: center;margin-top: 0.3em;margin-right: 5px;cursor: pointer" >
+        <label for="file_input"><i class="material-icons">file_upload</i></label>
+        <input type="file" id="file_input" (change)="selectFile($event)"  style="display:none" accept=".xlsx" multiple="false"/>
+        <label for="file_input" *ngIf="!selectedFiles" style="margin-left: 10px;"> Aucune fichier sélectionez</label>
+        <label for="file_input"  *ngIf="selectedFiles" style="margin-left: 10px;"> {{selectedFiles.item(0).name}}</label>
+      </label>
+      <button mat-raised-button color="primary" *ngIf="selectedFiles"
+              (click)="upload()">
+        <i class="fas fa-send fa-lg"></i> transférer
+      </button>
+
+    </div>
+  </div>
+</div>
+</div>

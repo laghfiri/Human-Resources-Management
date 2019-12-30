@@ -1,0 +1,348 @@
+<div class="header-tool">
+  <br>
+  <div style="text-align: center">
+    <img src="../../../assets/trait.png" alt="">
+
+    <h4>Mes demandes de congés</h4>
+
+  </div>
+  <hr class="separator">
+</div>
+<br>
+<div class="container" style="text-align: center" *ngIf="!dataLoaded">
+  <mat-spinner style="margin:0 auto;"></mat-spinner>
+  <h5 style="color: #0f4b9f">Chargement...</h5>
+</div>
+<div *ngIf="dataLoaded">
+<div class="container" *ngIf="action=='consulter' " >
+  <div class="panel panel-primary" *ngIf="pageConges?.content.length>0" >
+    <div class="panel-body">
+
+      <div style="text-align: center">
+        <h3 class='card-title'>
+          Dérniere congés demandé
+        </h3>
+      </div>
+      <div class="col-md-4">
+        <div style="text-align: center">
+          <i class="fas fa-map-marker-alt fa-5x" style="color:#0070ba;"></i>
+          <h4 class='text-title'>
+            Date début de congé
+            <br/>
+            <small> {{lastConge.dateDebut}}</small>
+          </h4>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 col-md-offset-4">
+        <div style="text-align: center">
+          <i class="fas fa-map-marker-alt fa-5x" style="color:#0070ba;"></i>
+          <h4 class='text-title'>
+            Date fin de congé
+            <br/>
+            <small> {{lastConge.dateFin}}</small>
+          </h4>
+        </div>
+
+      </div>
+      <div class="col-md-12">
+        <div style="text-align: center; margin-top: -50px;" >
+          <h3 class="Information">Information</h3>
+          <h5> Status :
+            <p data-title="Status" *ngIf="lastConge.status==1  || lastConge.status==0" style="color:sandybrown"><i  class="far fa-clock"></i> En cours de traitement</p>
+            <p data-title="Status" *ngIf="lastConge.status==3" style="color:crimson"><i  class="far fa-times-circle"></i> Refusé</p>
+            <p data-title="Status" *ngIf="lastConge.status==2" style="color:#1ca64c"><i  class="far fa-check-circle"></i> Accepté</p>
+          </h5>
+          <h5>Délai : <p style="color:#1ca64c" ><i class="far fa-clock-o"></i> {{lastConge.dure}} Jour(s)</p>
+          </h5>
+          <h5 *ngIf="JourRestant">Jours Restant : <p style="color:#1ca64c" ><i class="far fa-clock-o"></i> {{JourRestant}} Jour(s)</p>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel panel-default" *ngIf="pageConges?.content.length>0" >
+    <div class="panel-heading">
+      Liste des congés
+    </div>
+
+    <div class="panel-body">
+      <div id="no-more-tables">
+
+
+        <table class="table table-hover table-striped table-bordered nowrap cf" style="margin-top: 10px;width:100%">
+          <thead>
+          <tr>
+            <th class="numeric">#ID</th>
+            <th class="numeric">Date_debut</th>
+            <th class="numeric">Date_Fin</th>
+            <th class="numeric">Type</th>
+            <th class="numeric">Dure</th>
+            <th class="numeric">Status</th>
+            <th class="numeric">Attachment</th>
+            <th class="numeric">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of pageConges?.content">
+            <td data-title="#ID">{{c.idC}}</td>
+            <td data-title="Date_debut">{{c.dateDebut}}</td>
+            <td data-title="Date_Fin">{{c.dateFin}}</td>
+            <td data-title="Type">{{c.type}}</td>
+            <td data-title="Dure">{{c.dure}}{{c.status}}</td>
+            <td data-title="Status" *ngIf="c.status==1  || c.status==0" style="color:sandybrown"><i  class="far fa-clock"></i> En cours
+              de traitement
+            </td>
+            <td data-title="Status" *ngIf="c.status==3" style="color:crimson"><i  class="far fa-times-circle"></i> Refusé
+            </td>
+            <td data-title="Status" *ngIf="c.status==2" style="color:#1ca64c"><i  class="far fa-check-circle"></i>
+              Accepté
+            </td>
+            <td data-title="Attachement" *ngIf="c.attachement!=null"><a
+              href="http://localhost:8080/files/{{c.attachement}}"><i class="fas fa-paperclip fa-lg"></i> Voir attachement</a>
+            </td>
+            <td data-title="Attachement" *ngIf="c.attachement==null">Aucune attachement</td>
+            <td data-title="Actions" *ngIf="c.status==0">
+              <a >
+                <i class="far fa-trash-alt fa-lg" style="cursor: pointer;color: red" (click)="openDialog(c.dure,c.idC)"></i></a>
+              <a><i class="fas fa-user-edit fa-lg" (click)="chargerConge(c)"
+                    style="cursor: pointer;color: #035b96;margin-left: 40px"></i></a>
+            </td>
+            <td data-title="Actions" *ngIf="c.status!=0">
+             Non disponible
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div style="text-align: right">
+          <button mat-raised-button (click)="mode=1" style="text-align: right">
+            Demander
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: center">
+      <nav style="position: center;cursor: pointer">
+        <ul class="pagination">
+          <ul class="pagination">
+
+            <li class="page-item " [ngClass]="{'disabled':page==0}">
+              <a class="page-link" (click)="gotoPage(page-1)">Précédent</a>
+            </li>
+            <li class="page-item" *ngFor="let p of pages;let i=index" [ngClass]="{'active':page==i}">
+              <a class="page-link " (click)="gotoPage(i)">{{i}}</a>
+            </li>
+
+
+            <li class="page-item" [ngClass]="{'disabled':page>=ArrayS-1}">
+              <a class="page-link" (click)="gotoPage(page+1)">Suivant</a>
+            </li>
+          </ul>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="panel panel-primary" *ngIf="pageConges?.content.length<=0" >
+    <div class="panel-body" style="text-align: center">
+      <div class="col-md-12">
+    <h4 style="color:#0070ba;">Résultat Vide</h4>
+
+        <img src="../../../assets/404.svg" width="100px">
+    <p>Aucun congé n'est demandé jusqu'a maintenant .</p>
+        <p>pour demander un congé veuillez naviguer a la partie demander congé</p>
+      </div>
+      </div>
+  </div>
+</div>
+<div class="container" *ngIf="action=='modifier'">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Modification
+    </div>
+    <div class="panel-body">
+
+      <mat-horizontal-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+        <mat-step [stepControl]="firstFormGroup" [editable]="true">
+          <div style="text-align: center;">
+
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Information Personelle</ng-template>
+
+              <div class="col-md-12 ">
+
+                <h4 style="color: #0f4b9f;text-align: center"> Modification des congés: </h4>
+
+              </div>
+              <div class="col-md-4 col-md-offset-4">
+                <div class="notifications" *ngIf="!IsPossible"><p class="notification notification-critical"
+                                                                  role="alert">
+                  Un autre employee dans votre service est déja en congé.</p></div>
+                <div class="notifications" *ngIf="nbr<0"><p class="notification notification-critical" role="alert">
+                  Vérifiez votre saisie et réessayez.</p></div>
+                <div class="notifications" *ngIf="calc && nbr>0" style="width: 340px;"><p
+                  class="notification notification-success"> La duré
+                  du congé selectioné: <strong>{{nbr}} Jour(s)</strong></p></div>
+                <div class="notifications" *ngIf="nbr==0"><p class="notification notification-success"> La duré du
+                  congé selectioné: <strong>1 Jour(s)</strong></p></div>
+
+              </div>
+              <div class="form-group" style="margin-top: 8px">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <input matInput [matDatepicker]="picker" formControlName="DateDebut"
+                           placeholder="Date Début Congés" (dateChange)="verifieStart()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker ngDefaultControl></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <input matInput [matDatepicker]="picker1" formControlName="DateFin"
+                           placeholder="Date Fin Congés"
+                           (dateChange)="NbrJour()">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+
+                  <mat-form-field class="example-form-field">
+                    <mat-select placeholder="Type congés" formControlName="type" required>
+                      <mat-option>--</mat-option>
+                      <mat-option value="maladie">Maladie</mat-option>
+                      <mat-option value="mariage">Mariage</mat-option>
+                      <mat-option value="deces">Déces</mat-option>
+                    </mat-select>
+                    <mat-error>Type de congés est requis</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="col-md-12">
+              <button mat-raised-button color="primary" disabled matStepperNext *ngIf="!IsPossible">Suivant</button>
+              <button mat-raised-button color="primary" matStepperNext *ngIf="IsPossible">Suivant</button>
+
+            </div>
+          </div>
+        </mat-step>
+        <mat-step [editable]="true">
+          <ng-template matStepLabel>Joindre un attachement</ng-template>
+          <div>
+            <h5 style="text-align: center">Séléctionez un attachement (image ou bien document) . MaxSize= 10M</h5>
+            <small> Document déja séléctionez : </small>
+          </div>
+          <div style="text-align: center">
+            <div class="col-md-6 col-md-offset-3">
+              <div *ngIf="currentFileUpload">
+
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                     attr.aria-valuenow="{{progress.percentage}}"
+                     aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                  {{progress.percentage}}%
+                </div>
+              </div>
+
+              <label style="color: #1ca64c" *ngIf="progress.percentage==100">Le document est bien chargé.</label>
+              <br>
+              <label class="btn btn-default">
+                <input type="file" (change)="selectFile($event)">
+              </label>
+              <button style="margin-right: 10px" mat-raised-button [disabled]="!selectedFiles"
+                      (click)="upload()">Upload
+              </button>
+              <br>
+              <br>
+
+              <div style="text-align: center">
+                <button mat-raised-button matStepperPrevious>Précédente</button>
+                <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Terminé</ng-template>
+          <h3> Dernière étape : confirmation ! </h3>
+          <div style="text-align: center">
+            <i class="far fa-calendar-plus fa-5x" style="color: #0e74a6;"></i>
+            <h5> Information du demande :</h5>
+          </div>
+          <div style="text-align: left;text-indent: 82px">
+
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check fa-w-16 "> Date Debut : <strong>{{DateDebut.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Date Fin : <strong>{{DateFin.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Duré : <strong>{{nbr}} Jours</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Type congés : <strong>{{type.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="description.value!=''">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Description : <strong>{{description.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="attachement!=null">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Pièces Join : <strong>{{attachement}}</strong></i>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div style="text-align: center" class="col-md-12">
+            <button mat-raised-button matStepperPrevious class="spacer">Précédent</button>
+            <button mat-raised-button (click)="stepper.reset()" class="spacer">Vider les champs</button>
+            <button mat-raised-button color="primary" (click)="modifier()" class="spacer">Modifier</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div style="text-align: right">
+        <button mat-raised-button style="text-align: right">
+          Annuler
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,272 @@
+<app-nav-bar></app-nav-bar>
+<div>
+
+  <div class="header-tool">
+    <br>
+
+      <div style="margin-left: 45%">
+        <i class="fas fa-users fa-3x"></i>
+        Gestion Visiteur
+      </div>
+
+    <hr class="separator">
+  </div>
+
+  <br>
+
+  <div class="container" *ngIf="mode==0">
+
+    <div class="panel panel-default">
+      <div class="panel-title" style="text-align: center;font-weight: 500;color: #3f51b5;">Recherher Visiteur</div>
+      <div class="panel-body">
+
+        <div class="col-sm-6">
+          <div class="col-padding" style="text-align: center">
+            <h5 style="text-align: center">Par Nom</h5>
+            <form>
+              <mat-form-field style="margin-right: 30px">
+                <input matInput placeholder="Search" [(ngModel)]="motCle"  name="motCle">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="chercher()"><i class="fas fa-search"></i> Rechercher
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div id="no-more-tables">
+        <table class="table table-hover table-striped table-bordered nowrap" style="margin-top: 10px;width:100%">
+          <thead>
+          <tr>
+            <th scope="col">#Matricule</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">CIN</th>
+            <th scope="col">Date d'entree </th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let v of pageVisiteurs?.content">
+            <td data-title="#Matricule">{{v.idV}}</td>
+            <td data-title="nom">{{v.nom}}</td>
+            <td data-title="prenom">{{v.prenom}}</td>
+            <td data-title="cin">{{v.cin}}</td>
+            <td data-title="dateEntree">{{v.dateEntree}}</td>
+            <td data-title="Action">
+              <a (click)="openDialog(v.idV,v.nom)">
+                <i class="far fa-trash-alt fa-lg" style="cursor: pointer;color: red"></i></a>
+              <a (click)="chargerVisit(v)"><i class="fas fa-user-edit fa-lg" style="cursor: pointer;color: #035b96;margin-left: 40px"></i></a> </td>
+          </tr>
+          </tbody>
+        </table>
+        <button mat-raised-button color="primary" (click)="mode=1" style="align-content: right"><i
+          class="fas fa-user-plus"></i>
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer" style="text-align: center">
+    <nav style="position: center;cursor: pointer">
+      <ul class="pagination">
+        <li class="page-item " [ngClass]="{'disabled':page==0}">
+          <a class="page-link" (click)="gotoPage(page-1)">Précédent</a>
+        </li>
+        <li class="page-item" *ngFor="let p of pages;let i=index" [ngClass]="{'active':page==i}">
+          <a class="page-link " (click)="gotoPage(i)">{{i}}</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled':page==ArrayS-1}">
+          <a class="page-link" (click)="gotoPage(page+1)">Suivant</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  </div>
+  <div>
+    <div class="container" *ngIf="mode==1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Ajouter Visiteur
+        </div>
+        <div class="panel-body">
+          <mat-horizontal-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+            <mat-step [stepControl]="firstFormGroup" [editable]="true">
+              <form [formGroup]="firstFormGroup" >
+                <ng-template matStepLabel>Information Personelle</ng-template>
+                <div style="text-align: center">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput placeholder="Nom" formControlName="nom" required>
+                        <button mat-button *ngIf="nom.value" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="nom.reset()">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-hint></mat-hint>
+                        <mat-error *ngIf="nom.errors && !nom.hasError('required')">
+                          nom trés court
+                        </mat-error>
+                        <mat-error *ngIf="nom.hasError('required')">
+                          nom est <strong>requis</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput placeholder="Prenom" formControlName="prenom" required>
+                        <button mat-button *ngIf="prenom.value" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="prenom.reset()">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-hint></mat-hint>
+                        <mat-error *ngIf="prenom.errors && !prenom.hasError('required')">
+                          prenom trés court
+                        </mat-error>
+                        <mat-error *ngIf="prenom.hasError('required')">
+                          prenom est <strong>requis</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput placeholder="CIN" formControlName="cin" required>
+                        <mat-hint></mat-hint>
+                        <mat-error *ngIf="cin.hasError('required')">
+                          CIN est <strong>requis</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-form-field">
+                        <input matInput [matDatepicker]="picker1" formControlName="dateEntree" placeholder="Date d'Entree">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="text-align: center">
+                      <button mat-raised-button color="primary" (click)="saveVisit()" class="spacer">Confirmer</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <div style="text-align: right">
+            <button mat-raised-button (click)="mode=0" style="text-align: right">
+              Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="mode==2" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Modifier Visiteur
+
+      </div>
+      <div class="panel-body">
+
+        <mat-vertical-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+          <mat-step [stepControl]="firstFormGroup" [editable]="true">
+            <ng-template matStepLabel>Modifier les informations</ng-template>
+            <div style="text-align: center">
+
+
+              <form [formGroup]="firstFormGroup">
+
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-form-field">
+                      <input matInput placeholder="Nom"  formControlName="nom" required>
+                      <button mat-button *ngIf="nom.value" matSuffix mat-icon-button aria-label="Clear"
+                              (click)="nom.reset()">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                      <mat-hint></mat-hint>
+                      <mat-error *ngIf="nom.errors && !nom.hasError('required')">
+                        nom trés court
+                      </mat-error>
+                      <mat-error *ngIf="nom.hasError('required')">
+                        nom est <strong>requis</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-form-field">
+                      <input matInput placeholder="Prenom" formControlName="prenom" required>
+                      <button mat-button *ngIf="prenom.value" matSuffix mat-icon-button aria-label="Clear"
+                              (click)="prenom.reset()">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                      <mat-hint></mat-hint>
+                      <mat-error *ngIf="prenom.errors && !prenom.hasError('required')">
+                        prenom trés court
+                      </mat-error>
+                      <mat-error *ngIf="prenom.hasError('required')">
+                        prenom est <strong>requis</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-form-field">
+                      <input matInput placeholder="CIN" formControlName="cin" required>
+                      <mat-hint></mat-hint>
+
+                      <mat-error *ngIf="cin.hasError('required')">
+                        CIN est <strong>requis</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-form-field">
+                      <input matInput [matDatepicker]="picker1" formControlName="dateEntree" placeholder="Date d'Entree">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div style="text-align: center">
+                  <button mat-raised-button color="primary" (click)="updateVisit()" class="spacer">Confirmer</button>
+                </div>
+              </form>
+
+
+              </div>
+
+          </mat-step>
+
+
+          <div style="text-align: right">
+            <button mat-raised-button (click)="mode=0" style="text-align: right">
+              Annuler
+            </button>
+          </div>
+        </mat-vertical-stepper>
+      </div>
+    </div>
+  </div>
+</div>

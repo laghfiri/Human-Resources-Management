@@ -1,0 +1,4057 @@
+.card-profile {
+  border-radius: 0;
+  border: 0;
+}
+.card-profile .card-back {
+  background-image: radial-gradient(circle farthest-side at center bottom, #009cde, #003087 125%);
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #003087;
+  height: 150px;
+
+}
+.card-profile .card-img-profile {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-top: -95px;
+  margin-bottom: 35px;
+  border: 5px solid #e6e5e1;
+}
+.card-profile .card-title {
+  margin-bottom: 50px;
+  margin-top: -10px;
+}
+.card-profile .card-title small {
+  display: block;
+  font-size: .6em;
+  margin-top: .2em;
+}
+
+.panel{
+  box-shadow: 1em 1em 2em rgba(0, 0, 0, 0.2);
+}
+.mat-tab-group{
+  margin-top: -41px;
+}
+.spac{
+  margin-top: 10px;
+}
+
+.img{
+  width: 228px;
+  height: 227px;
+  border-radius: 50%;
+}
+.note{
+  border: 1px solid #0099dc;
+  border-radius: 10px;
+
+}
+/* Settings */
+/* 8ballUI/public/css/_views/settings/index.less */
+/**
+ * @fileOverview Variables contains variables
+ * @name Variables
+ * @author hdoan, mdaveshah, ziliu
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+/* Font sizes */
+/* Inputs */
+/** old styles **/
+/****************/
+/* Colors */
+/* button colors */
+/* New color variables from Adam Dustan's Patterns sheet: https://ebay.box.com/s/apis0xukrp25jzdvjyky */
+/* engagement module colors, named via http://chir.ag/projects/name-that-color */
+/* info / warning icon colors */
+/* generic colors for colors except text like box-border, shadow, background */
+/* card colors */
+/* textColor for all the colors of text */
+/* font weights */
+/* Z-index list */
+/* user for a bird's eye view of components based on z-axis */
+/* for example, if you want to put a button in header, just assign z-index of that button to @zindexHeader */
+/* these will overwrite the bootstrap pre defined variables */
+/* TODO: check the clean the non-needed modal styles in bootstrap */
+/* the same as bootstrap one, just overwrite */
+/* Setting for Sidepanel */
+/* This is not used by all side panels, only for the default one */
+/* what about larger phones like gs3? what about phablets like the note?
+/* responsive breakpoints */
+/* borders */
+/* Image Paths */
+/* Image URIs */
+/* Navigation */
+/* Activity */
+/* send money */
+/* data uri for notification */
+/* wallet */
+/* transfer landing page */
+/* shop static landing page */
+/* feedback icon */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/**
+ * @fileOverview Mixins contains mixins
+ * @name Mixins
+ * @author hdoan, mdaveshah
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ * Please do not modify Mixins to add IE related styles.
+ */
+.ltrInput {
+  text-align: left;
+  /*! @noflip */
+  direction: ltr;
+}
+.noflip_ltr {
+  /* @noflip */
+  direction: ltr;
+}
+/* overflow auto + native mobile scrollage */
+.overflow-auto {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* Temporary override of vx header to resolve conflicts */
+.vx_globalNav-container {
+  max-width: 1024px;
+}
+.theoverpanel .vx_btn {
+  padding: 0.75rem 2.5rem;
+}
+/* END VX header fix */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Hide search li from desktop nav */
+.globalNav-listItem_mobile.globalNav-listItem_mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .globalNav-listItem_mobile.globalNav-listItem_mobile {
+    display: block;
+  }
+}
+@media (max-width: 640px) {
+  .ellipsis {
+    white-space: normal;
+  }
+  .nav {
+    overflow-y: hidden;
+    box-shadow: 0 2px 3px 0px gray;
+  }
+  .nav ul {
+    width: 25.688em;
+  }
+  #BlueNav li.active a {
+    border-bottom: 4px solid white;
+    padding-bottom: 15px;
+  }
+  .nav-item:after {
+    display: none;
+  }
+}
+/**
+ *  Multi-line truncation utilizing overflow:hidden and specified height of content
+ *  http://www.mobify.com/blog/multiline-ellipsis-in-pure-css/
+ *
+ *  @height - height of content to cut off
+ *  @lineheight - spacing between lines
+ *  @ellipsiswidth - width of ellipsis area
+ */
+/**
+ *	Vertical separator with radial box shadow right
+ *	@width - width of vertical separator
+ *	@height1 - height of first darker box shadow
+ *	@height2 - height of second lighter box shadow (taller than first height)
+ *	@top1 - top position of first box shadow
+ *	@top2 - top position of second box shadow
+ *	@right - right position of separator
+ *	@z - z-index of separator
+ *	@borderRadius - how radial the box shadow is
+ */
+/**
+ *	Horizontal separator with radial box shadow down
+ *	@height - height of horizontal separator
+ *	@width1 - width of first darker box shadow
+ *	@width2 - width of second lighter box shadow (longer than first width)
+ *	@left1 - left position of first box shadow
+ *	@left2 - left position of second box shadow
+ *	@bottom - bottom position of separator
+ *	@z - z-index of separator
+ *	@borderRadius - how radial the box shadow is
+ */
+/* This mixin is to add a pointer to a dropdown */
+/* mixin for creating a triangle */
+/* Mixin for bubbles */
+/* mixin for creating carets bubbles with a border */
+/* mixin for the launcher style containers */
+.container {
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #f0efef;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #e8e7e7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#e8e7e7));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #e8e7e7);
+  background-image: -o-linear-gradient(top, #f5f5f5, #e8e7e7);
+  background-image: linear-gradient(to bottom, #f5f5f5, #e8e7e7);
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e7e7 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e7e7 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e7e7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e7e7', GradientType=0);
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+/* mixins for creating caret for customSelectBtn */
+/*  START SPINNER  */
+/* DEFAULT USAGE: add .hasSpinner classes (in app.less) to the elements that we want to have an overlay and spinner graphic on top of */
+/* Applies to Modals and other DIV elements: Apply this mixin selectively to other CSS properties to avoid duplication of CSS code */
+/* Just use .spinner() to apply spinner, or along with .overlay() to add overlay behind spinner and block the user interaction on the DIV */
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+/*  END SPINNER  */
+/* mixin to create flat white button (iOS7 style) */
+.flatBtn {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: #ffffff;
+  -moz-box-shadow: 0 1px 3px #cccccc;
+  -webkit-box-shadow: 0 1px 3px #cccccc;
+  box-shadow: 0 1px 3px #cccccc;
+  background-color: #faf9f9;
+  background-image: -moz-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fffefe), to(#f3f2f2));
+  background-image: -webkit-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: -o-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: linear-gradient(to bottom, #fffefe, #f3f2f2);
+  background-image: -webkit-linear-gradient(top, #fffefe 0%, #f3f2f2 100%);
+  background-image: -o-linear-gradient(top, #fffefe 0%, #f3f2f2 100%);
+  background-image: linear-gradient(to bottom, #fffefe 0%, #f3f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffefe', endColorstr='#fff3f2f2', GradientType=0);
+}
+.small-error {
+  font-size: 13px;
+  color: red;
+}
+/* Overrides for photoupload overlay */
+@media (min-width: 641px) {
+  .addingPhotoText {
+    position: fixed;
+    top: 15%;
+  }
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .addingPhotoText {
+    position: fixed;
+    top: 5%;
+  }
+}
+/* IPAD */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .addingPhotoText {
+    position: fixed;
+    top: 11%;
+  }
+}
+/* END override for photoupload */
+/* BIDI Overrides for RTL email input since western characters exist */
+/* END BIDI */
+.buttonOpaque {
+  opacity: .2;
+  color: #003087;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #003087;
+  box-shadow: 0 0 0 1px #003087 inset;
+}
+li.row.options-row.docId {
+  max-width: 446px;
+}
+.formattedAddress {
+  margin-bottom: 3em;
+  padding-left: 36px;
+  position: relative;
+  word-wrap: break-word;
+  max-width: 19.071429rem;
+}
+.formatAddressWrapper {
+  cursor: pointer;
+  list-style-type: none;
+}
+.undoLink {
+  display: block;
+}
+/**
+ * DO NOT EDIT THIS FILE AS IT'S GENERATED CODE.
+ * UED: cgrigson, adustin, nvandewater
+ * UIE: jlowery
+ * Note: If modifications are needed, don't modify this file! Either override or make a PR to:
+ * https://github.paypal.com/jlowery/paypal-vxpattern-lib
+*/
+/* Icons */
+/* Z-index list */
+/* user for a bird's eye view of components based on z-axis */
+/* for example, if you want to put a button in header, just assign z-index of that button to @zindexHeader */
+/* these will overwrite the bootstrap pre defined variables */
+/* TODO: check the clean the non-needed modal styles in bootstrap */
+/* the same as bootstrap one, just overwrite */
+/* Setting for Sidepanel */
+/* This is not used by all side panels, only for the default one */
+/* what about larger phones like gs3? what about phablets like the note?
+/* responsive breakpoints */
+/* Navigation */
+/* Spinner */
+/*
+*	CSS for Panel with optional Action
+*/
+.vx_panel,
+.vx_panel-tile,
+.vx_panel-well {
+  min-height: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+}
+.vx_panel,
+.vx_panel-well {
+  display: table;
+  width: 100%;
+}
+.vx_panel-tile {
+  background-color: #ffffff;
+  border: 1px solid #cbd2d6;
+}
+.vx_panel-well {
+  background-color: #f5f7fa;
+}
+.vx_panel-info {
+  display: table-cell;
+  color: #2c2e2f;
+}
+.vx_panel-header,
+.vx_panel-text,
+.vx_panel-action {
+  color: #0070ba;
+  margin: 0;
+  font-family: 'PayPal-Sans', sans-serif;
+  line-height: 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+
+}
+.vx_panel-action {
+  display: table-cell;
+  max-width: 7em;
+  color: #0070ba;
+  text-align: right;
+}
+.vx_panel-text {
+  font-weight: 400;
+  font-size: 0.9375rem;
+}
+/*
+* @name buttons
+* @description All defined button styles and states belong here, including any helper class button style options, like `vx_btn-secondary` or `vx_btn-medium` etc.
+*
+* @group elements
+*/
+@font-face {
+  font-family: 'consumer-icons';
+  src: url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.eot');
+  src: url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.woff') format('woff'), /* Modern Browsers */ url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.svg#69ac2c9fc1e0803e59e06e93859bed03') format('svg');
+  font-style: normal;
+  font-weight: 400;
+
+  /* IE9 Compat Modes */
+  /* Legacy iOS */
+}
+.vx_btn,
+.vx_btn-small,
+.vx_btn-medium {
+  display: inline-block;
+  min-width: 6rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #0070ba;
+  border-radius: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #0070ba;
+  transition: all 250ms ease;
+  -webkit-font-smoothing: antialiased;
+}
+.vx_btn:visited,
+.vx_btn-small:visited,
+.vx_btn-medium:visited,
+.vx_btn:active,
+.vx_btn-small:active,
+.vx_btn-medium:active,
+.vx_btn:hover,
+.vx_btn-small:hover,
+.vx_btn-medium:hover,
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  color: #ffffff;
+}
+.vx_btn:visited,
+.vx_btn-small:visited,
+.vx_btn-medium:visited {
+  text-decoration: none;
+}
+.vx_btn:hover,
+.vx_btn-small:hover,
+.vx_btn-medium:hover,
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  background-color: #003087;
+  border: 1px solid #003087;
+  box-shadow: none;
+  text-decoration: none;
+}
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  outline: none;
+  text-decoration: underline;
+}
+.vx_btn[disabled],
+.vx_btn-small[disabled],
+.vx_btn-medium[disabled],
+.vx_btn[disabled]:hover,
+.vx_btn-small[disabled]:hover,
+.vx_btn-medium[disabled]:hover,
+.vx_btn[disabled]:active,
+.vx_btn-small[disabled]:active,
+.vx_btn-medium[disabled]:active,
+.vx_btn.vx_is-disabled,
+.vx_btn-small.vx_is-disabled,
+.vx_btn-medium.vx_is-disabled,
+.vx_btn.vx_is-disabled:hover,
+.vx_btn-small.vx_is-disabled:hover,
+.vx_btn-medium.vx_is-disabled:hover,
+.vx_btn.vx_is-disabled:active,
+.vx_btn-small.vx_is-disabled:active,
+.vx_btn-medium.vx_is-disabled:active {
+  color: #cbd2d6;
+  background: #f5f6f8;
+  box-shadow: none;
+  border: 1px solid #cbd2d6;
+  text-decoration: none;
+  cursor: not-allowed;
+  outline: none;
+  -ms-transform: none;
+  -webkit-transform: none;
+  transform: none;
+}
+.vx_btn + .vx_btn,
+.vx_btn + .vx_btn-small,
+.vx_btn + .vx_btn-medium,
+.vx_btn-small + .vx_btn,
+.vx_btn-small + .vx_btn-small,
+.vx_btn-small + .vx_btn-medium,
+.vx_btn-medium + .vx_btn,
+.vx_btn-medium + .vx_btn-small,
+.vx_btn-medium + .vx_btn-medium {
+  margin-left: 0.75rem;
+}
+.vx_btn.vx_btn-block,
+.vx_btn-small.vx_btn-block,
+.vx_btn-medium.vx_btn-block {
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}
+.vx_btn-secondary {
+  background-color: transparent;
+  border-color: #0070ba;
+  color: #0070ba;
+}
+.vx_btn-secondary:hover,
+.vx_btn-secondary:focus {
+  color: #003087;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #003087;
+  box-shadow: 0 0 0 1px #003087 inset;
+}
+.vx_btn-secondary:visited {
+  text-decoration: none;
+  color: #0070ba;
+}
+.vx_btn_reversed {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #0070ba;
+}
+.vx_btn_reversed:hover,
+.vx_btn_reversed:focus {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  color: #003087;
+}
+.vx_btn_reversed:visited {
+  color: #0070ba;
+}
+.vx_btn_reversed:visited:hover {
+  color: #003087;
+}
+.vx_btn-secondary_reversed {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.vx_btn-secondary_reversed:hover,
+.vx_btn-secondary_reversed:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px #ffffff inset;
+}
+.vx_btn-medium {
+  font-size: 0.8125rem;
+  line-height: 1.38461538;
+  min-width: 4.5rem;
+  padding: 0.5625rem 1.125rem;
+}
+.vx_btn-small {
+  font-size: 0.8125rem;
+  line-height: 1.36363636;
+  min-width: 3.75rem;
+  padding: 0.46875rem 0.9375rem;
+}
+.vx_btn-icon {
+  display: inline-block;
+  width: 1.5rem;
+  position: relative;
+  margin-right: 0.625rem;
+}
+.vx_btn-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -1.125rem;
+  left: 0;
+}
+.vx_btn-icon .svg-stroke {
+  stroke: #ffffff;
+}
+.vx_btn-icon .svg-fill {
+  fill: #ffffff;
+}
+.vx_btn-secondary .vx_btn-icon .svg-stroke {
+  stroke: #0070ba;
+}
+.vx_btn-secondary .vx_btn-icon .svg-fill {
+  fill: #0070ba;
+}
+.vx_btn-secondary:hover .vx_btn-icon .svg-stroke,
+.vx_btn-secondary:focus .vx_btn-icon .svg-stroke {
+  stroke: #003087;
+}
+.vx_btn-secondary:hover .vx_btn-icon .svg-fill,
+.vx_btn-secondary:focus .vx_btn-icon .svg-fill {
+  fill: #003087;
+}
+[disabled] .vx_btn-icon .svg-stroke,
+[disabled]:hover .vx_btn-icon .svg-stroke,
+[disabled]:active .vx_btn-icon .svg-stroke,
+.vx_is-disabled .vx_btn-icon .svg-stroke,
+.vx_is-disabled:hover .vx_btn-icon .svg-stroke,
+.vx_is-disabled:active .vx_btn-icon .svg-stroke {
+  stroke: #cbd2d6;
+}
+[disabled] .vx_btn-icon .svg-fill,
+[disabled]:hover .vx_btn-icon .svg-fill,
+[disabled]:active .vx_btn-icon .svg-fill,
+.vx_is-disabled .vx_btn-icon .svg-fill,
+.vx_is-disabled:hover .vx_btn-icon .svg-fill,
+.vx_is-disabled:active .vx_btn-icon .svg-fill {
+  fill: #cbd2d6;
+}
+.vx_btn-medium .vx_btn-icon {
+  width: 1.125rem;
+  margin-right: 0.5rem;
+}
+.vx_btn-medium .vx_btn-icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  top: -0.8125rem;
+}
+.vx_btn-small .vx_btn-icon {
+  width: 1.10795454rem;
+  margin-right: 0.375rem;
+}
+.vx_btn-small .vx_btn-icon svg {
+  width: 1.10795454rem;
+  height: 1.10795454rem;
+  top: -0.75rem;
+}
+.vx_btn-group,
+.vx_btn-group_stacked {
+  text-align: center;
+}
+.vx_btn-group_stacked .vx_btn,
+.vx_btn-group_stacked .vx_btn-small,
+.vx_btn-group_stacked .vx_btn-medium {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vx_addBtn-primary,
+.vx_addBtn-secondary {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  background: none;
+  border: none;
+  color: #0070ba;
+  padding-left: 0.125rem;
+}
+.vx_addBtn-primary:before,
+.vx_addBtn-secondary:before {
+  content: "\e004";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'consumer-icons';
+  line-height: 0;
+  font-size: 1.25rem;
+}
+.vx_addBtn-primary:hover,
+.vx_addBtn-secondary:hover {
+  color: #005ea6;
+  text-decoration: none;
+}
+.vx_addBtn-primary:before {
+  color: #ffffff;
+  background: #0070ba;
+  border-radius: 100%;
+  padding: 0 5px 3px;
+  box-shadow: 0 1px 2px #2c2e2f;
+  margin-right: 12px;
+}
+.vx_addBtn-secondary:before {
+  margin-right: 5px;
+}
+.vx_backBtn {
+  background: none;
+  border: none;
+  color: #0070ba;
+  font-weight: normal;
+  padding: 0;
+}
+.vx_backBtn:focus,
+.vx_backBtn:active,
+.vx_backBtn:hover {
+  color: #005ea6;
+  text-decoration: none;
+}
+.vx_backBtn:focus span,
+.vx_backBtn:active span,
+.vx_backBtn:hover span {
+  text-decoration: underline;
+}
+.vx_backBtn:before {
+  font-family: 'consumer-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\2190';
+  display: inline;
+  font-size: 1.5em;
+  vertical-align: -0.1em;
+  padding-right: 0.1em;
+}
+.vx_btn-twoUp .vx_btn {
+  display: inline-block;
+  width: 48%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.vx_btn-twoUp .vx_btn:first-of-type {
+  margin-right: 1.5%;
+}
+.vx_btn-twoUp .vx_btn:last-of-type {
+  margin-left: 1.5%;
+}
+@media (max-width: 768px) {
+  .vx_blocks-for-mobile .vx_btn {
+    display: block;
+    width: 100%;
+  }
+  .vx_blocks-for-mobile .vx_btn + .vx_btn {
+    margin: 5px 0 0;
+  }
+}
+.vx_btn-link {
+  background: none;
+  border: none;
+  color: #0070ba;
+  font-weight: 500;
+  padding: 0;
+}
+.vx_btn-link:hover {
+  color: #005ea6;
+  text-decoration: underline;
+}
+/* Overpanel */
+@media print {
+  .overpanelButtons {
+    visibility: hidden;
+  }
+}
+.overpanelOpening .theoverpanel,
+.overpanelOpen .theoverpanel {
+  position: fixed;
+}
+.theoverpanel {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  z-index: 1050;
+  background: #ffffff;
+}
+.theoverpanel h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+  font-size: 1.85rem;
+}
+.overpanel-wrapper {
+  margin: 0;
+  min-height: 100%;
+  background: #ffffff;
+}
+.overpanel-header {
+  text-align: center;
+}
+.theoverpanel .overpanelButtons {
+  overflow: hidden;
+}
+/**
+ * Overqualifying this for now since it clashes with
+ * styles declared in overpanel.less
+ *
+ * Once we move to a single overpanel solution, we can
+ * remove .theoverpanel from this rule
+ */
+.theoverpanel .dismiss {
+  margin-left: 0;
+  top: 0;
+  padding: 15px;
+  left: 50%;
+  z-index: 2;
+}
+.theoverpanel .dismiss .icon-close-small {
+  color: #666666;
+}
+/**
+ * Overqualifying this for now since it clashes with
+ * styles declared in overpanel.less
+ *
+ * Once we move to a single overpanel solution, we can
+ * remove .theoverpanel from this rule
+ */
+.theoverpanel .back {
+  margin-left: 0;
+  top: 0;
+  padding: 15px;
+  right: 50%;
+  z-index: 2;
+  float: left;
+  font-size: 15px;
+  font-weight: normal;
+  color: #0070ba;
+  line-height: 1;
+}
+.theoverpanel .back .icon {
+  font-size: 18px;
+  margin-right: 5px;
+}
+.theoverpanel .back:hover {
+  text-decoration: none;
+}
+.theoverpanel .back:hover .backTitle {
+  text-decoration: underline;
+}
+@media (max-width: 1024px) {
+  .theoverpanel .dismiss {
+    margin-left: 0;
+    left: auto;
+    right: 0;
+  }
+}
+.columnSpan4 .overpanel-content {
+  position: relative;
+  min-height: 1px;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin: 0 auto;
+  float: none;
+}
+@media (min-width: 992px) {
+  .columnSpan4 .overpanel-content {
+    float: left;
+    width: 37.5%;
+  }
+}
+.columnSpan4 .overpanel-content .btn {
+  width: 100%;
+}
+.columnSpan5 .overpanel-content {
+  position: relative;
+  min-height: 1px;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin: 0 auto;
+  float: none;
+}
+@media (min-width: 992px) {
+  .columnSpan5 .overpanel-content {
+    float: left;
+    width: 41.66666667%;
+  }
+}
+.columnSpan5 .overpanel-content .btn {
+  width: 100%;
+}
+.overpanel-content {
+  width: 100%;
+  /* Top space in overpanel should be 114px for desktop by Adam Dustan */
+  padding: 31px 136px 20px 136px;
+  margin: 0 auto;
+  background: #ffffff;
+  position: relative;
+}
+.menu {
+  padding-right: 2em;
+}
+.menu .image,
+.menu .btn,
+.menu a,
+.menu .toggle {
+  width: 100%;
+  margin-bottom: 0.588em;
+}
+.menu .image {
+  max-width: 24em;
+  height: 13.5em;
+  padding: 0.5em;
+  margin: 0 auto 1em;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+}
+.overpanel-body {
+  margin-bottom: 68px;
+  z-index: 0;
+  background: #ffffff;
+  word-wrap: break-word;
+}
+.mypanel-body{
+  padding: 116px;
+}
+.overpanel-body dl {
+  margin: 0 0 1em;
+  position: relative;
+}
+.overpanel-body dt {
+  width: 100%;
+  margin: 0;
+  font-size: 0.9142857142857143em;
+  font-size: 1rem;
+  line-height: 1.875em;
+  font-weight: 600;
+  color: #333333;
+}
+.overpanel-body dd {
+  margin: 0 0 8px;
+  font-size: 0.9142857142857143em;
+  font-size: 1rem;
+  line-height: 1.3125em;
+  font-weight: 300;
+}
+.overpanel-body dd span {
+  color: #666666;
+  margin-right: 10px;
+}
+.overpanel-logo {
+  display: none;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 1em;
+  z-index: -1;
+  /**
+	 * not using the v2 sprite image here because the moneypak logo pushes the width of the
+	 * image and is not the same size as the others. This makes centering the image difficult
+	 */
+  background: url("https://www.paypalobjects.com/webstatic/sprite/sprite_logos_wallet_2x.png") no-repeat center 5px;
+  background-size: 35px;
+}
+.overpanel-subheader {
+  width: 100%;
+  margin: 0;
+  font-size: 0.9142857142857143em;
+  font-size: 1rem;
+  line-height: 1.875em;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: -12px;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+@media (max-width: 768px) {
+  .overpanel-content {
+    width: 100%;
+    padding-top: 3em;
+  }
+  .overpanel-header {
+    padding: 3em 3em 0;
+  }
+  .overpanel-body {
+    padding: 0 3em;
+  }
+  .columnSpan4 .overpanel-body,
+  .columnSpan5 .overpanel-body {
+    padding: 0;
+  }
+}
+@media (max-width: 640px) {
+  .overpanelOpen .footer {
+    display: none;
+  }
+  .overpanel-content {
+    padding-top: 20px;
+  }
+  .theoverpanel h2 {
+    font-size: 1.4285714285714288em;
+    font-size: 1.5625rem;
+    line-height: 0.84em;
+    line-height: 1.2em;
+    margin-top: 0;
+  }
+  .overpanel-header {
+    padding: 0 15px;
+  }
+  .overpanel-body {
+    padding: 0 15px;
+    margin-bottom: 2em;
+  }
+  .overpanel-logo {
+    position: relative;
+    z-index: 0;
+    display: inherit;
+  }
+  .overpanel-body.row-fluid > div:not(.btn-block) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .menu .image {
+    width: 20em;
+    height: 12em;
+  }
+}
+@media (max-width: 479px) {
+  .columnSpan4 .overpanel-content,
+  .columnSpan5 .overpanel-content {
+    width: 100%;
+  }
+  .columnSpan4 .overpanel-body,
+  .columnSpan5 .overpanel-body {
+    padding: 0 15px;
+  }
+}
+/**
+ * Temporary fixes for modals that should be styled as overpanels
+ * This should be removed once these get converted and make use
+ * of the actual overpanel module
+ */
+.paypalBalance .detailsHeader,
+.addFundsModal .detailsHeader,
+.withdrawFundsModal .detailsHeader,
+.paypalCredit .detailsHeader {
+  font-size: 1.8285714285714285em;
+  font-size: 2rem;
+  line-height: 1.09375em;
+  margin-bottom: 0.7em;
+  font-weight: 300;
+}
+.paypalBalance .modalContent,
+.addFundsModal .modalContent,
+.withdrawFundsModal .modalContent,
+.paypalCredit .modalContent {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  padding: 5em 0;
+}
+.paypalBalance .modalContent .modal-header,
+.addFundsModal .modalContent .modal-header,
+.withdrawFundsModal .modalContent .modal-header,
+.paypalCredit .modalContent .modal-header {
+  margin: 0;
+  padding: 0;
+}
+.paypalBalance.modal .modal-body.body-default,
+.addFundsModal.modal .modal-body.body-default,
+.withdrawFundsModal.modal .modal-body.body-default,
+.paypalCredit.modal .modal-body.body-default {
+  width: 100%;
+}
+@media (max-width: 640px) {
+  #paypalBalance .detailsHeader,
+  #addFunds .detailsHeader,
+  #withdrawFunds .detailsHeader {
+    margin-bottom: 0.7em;
+    font-size: 1.8285714285714285em;
+    font-size: 2rem;
+    line-height: 1.09375em;
+  }
+  #paypalBalance .modalContent,
+  #addFunds .modalContent,
+  #withdrawFunds .modalContent {
+    margin-top: 0;
+  }
+  #paypalBalance .modalContent .modal-header,
+  #addFunds .modalContent .modal-header,
+  #withdrawFunds .modalContent .modal-header {
+    margin: 0;
+    padding: 8px 8px 0;
+    background-color: transparent;
+    text-align: left;
+    border-bottom: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  #paypalBalance .modalContent .row-fluid .menu,
+  #addFunds .modalContent .row-fluid .menu,
+  #withdrawFunds .modalContent .row-fluid .menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+.card {
+  height: 140px;
+  padding: 0.5em;
+  border: 0 none;
+  position: relative;
+  color: #444444;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /* card color diagonal gradients */
+}
+.card:hover,
+.card:focus,
+.card:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #444444;
+}
+.card.creditOrDebit {
+  color: #ffffff;
+  border-radius: 10px;
+}
+.card.gray {
+  background-color: #7f7f7f;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #555555, #898989 50%, #555555);
+  background-image: -webkit-linear-gradient(135deg, #555555, #898989 50%, #555555);
+  background-image: -o-linear-gradient(135deg, #555555, #898989 50%, #555555);
+  background-image: linear-gradient(135deg, #555555, #898989 50%, #555555);
+}
+.card.black {
+  background-color: #474a4c;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #2c2e2f, #4e5153 50%, #2c2e2f);
+  background-image: -webkit-linear-gradient(135deg, #2c2e2f, #4e5153 50%, #2c2e2f);
+  background-image: -o-linear-gradient(135deg, #2c2e2f, #4e5153 50%, #2c2e2f);
+  background-image: linear-gradient(135deg, #2c2e2f, #4e5153 50%, #2c2e2f);
+}
+.card.blue {
+  background-color: #306793;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #07467a, #3a6f99 50%, #07467a);
+  background-image: -webkit-linear-gradient(135deg, #07467a, #3a6f99 50%, #07467a);
+  background-image: -o-linear-gradient(135deg, #07467a, #3a6f99 50%, #07467a);
+  background-image: linear-gradient(135deg, #07467a, #3a6f99 50%, #07467a);
+}
+.card.red {
+  background-color: #c95151;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #ba1717, #cd6060 50%, #ba1717);
+  background-image: -webkit-linear-gradient(135deg, #ba1717, #cd6060 50%, #ba1717);
+  background-image: -o-linear-gradient(135deg, #ba1717, #cd6060 50%, #ba1717);
+  background-image: linear-gradient(135deg, #ba1717, #cd6060 50%, #ba1717);
+}
+.card.gold {
+  background-color: #d0a157;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #c88723, #d2a764 50%, #c88723);
+  background-image: -webkit-linear-gradient(135deg, #c88723, #d2a764 50%, #c88723);
+  background-image: -o-linear-gradient(135deg, #c88723, #d2a764 50%, #c88723);
+  background-image: linear-gradient(135deg, #c88723, #d2a764 50%, #c88723);
+}
+.card.green {
+  background-color: #4f9c50;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(135deg, #317b31, #57a458 50%, #317b31);
+  background-image: -webkit-linear-gradient(135deg, #317b31, #57a458 50%, #317b31);
+  background-image: -o-linear-gradient(135deg, #317b31, #57a458 50%, #317b31);
+  background-image: linear-gradient(135deg, #317b31, #57a458 50%, #317b31);
+}
+.creditOrDebit {
+  border-radius: 10px;
+}
+.creditOrDebit:after {
+  content: "";
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
+.creditOrDebit.visa:after {
+  background: url("https://www.paypalobjects.com/webstatic/logo/cards/visa_2x.png") no-repeat;
+  background-size: 100%;
+}
+.creditOrDebit.visa .cardType {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.creditOrDebit.mastercard:after {
+  background: url("https://www.paypalobjects.com/webstatic/logo/cards/mastercard_2x.png") no-repeat;
+  background-size: 100%;
+}
+.creditOrDebit.mastercard .cardType {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.creditOrDebit.amex:after {
+  width: 20%;
+  height: 35%;
+  background: url("https://www.paypalobjects.com/webstatic/logo/cards/amex_2x.png") no-repeat;
+  background-size: 100%;
+}
+.creditOrDebit.amex .cardType {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.creditOrDebit.discover:after {
+  background: url("https://www.paypalobjects.com/webstatic/logo/cards/discover_2x.png") no-repeat;
+  background-size: 100%;
+}
+.creditOrDebit.discover .cardType {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.creditOrDebit.maestro:after {
+  background: url("https://www.paypalobjects.com/webstatic/logo/cards/maestro_2x.png") no-repeat;
+  background-size: 100%;
+}
+.creditOrDebit.maestro .cardType {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.creditOrDebit .ribbon {
+  top: 72%;
+}
+.creditOrDebit .cardName {
+  padding-top: 1em;
+}
+.creditOrDebit .lastDigits {
+  width: 100%;
+  padding: 26% 0 24%;
+  display: inline-block;
+  font-size: 1.0285714285714287em;
+  font-size: 1.125rem;
+  line-height: 1.1666666666666667em;
+  text-align: center;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.creditOrDebit .cardType {
+  position: absolute;
+  bottom: 1em;
+  right: 0.5em;
+}
+/*
+*	CSS for Sidepanel
+*/
+.sidepanel {
+  width: 320px;
+  height: 100%;
+  background: #2c2e2f;
+  /* Disable browser's default decoration for focus on */
+  outline: none;
+  -moz-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+  -webkit-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+  z-index: 0;
+  position: fixed;
+  right: -320px;
+  top: 0;
+}
+.sidepanel.open-side-panel {
+  right: 0;
+  z-index: 1;
+}
+.sidepanel .sidepanelContainer {
+  height: 100%;
+  background: #2c2e2f;
+  color: #ffffff;
+}
+.sidepanel .sidepanelContainer h3 {
+  color: #ffffff;
+}
+.sidepanel .sidepanelContainer .cellDivider {
+  border-left: 1px solid #444444;
+  padding: 0;
+}
+.sidepanel .sidepanelContainer .sidepanel-header {
+  border-bottom: 1px solid #393e40;
+  min-height: 52px;
+}
+.sidepanel .sidepanelContainer .sidepanel-header h3 {
+  margin: 11px 0 11px 17px;
+}
+.sidepanel .sidepanelContainer .sidepanel-header .icon-arrow-right-small:before,
+.sidepanel .sidepanelContainer .sidepanel-header .icon-add-small:before {
+  font-size: 23px;
+  float: left;
+  padding: 0 0 0 12px;
+}
+.sidepanel .sidepanelContainer .leftIcon,
+.sidepanel .sidepanelContainer .rightIcon {
+  padding: 28px 10px;
+  margin: auto;
+  cursor: pointer;
+}
+.sidepanel .sidepanelContainer .sidepanel-body {
+  height: 85%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.sidepanel .sidepanelContainer .sidepanel-footer {
+  background-color: inherit;
+  border-top: 1px solid #393e40;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+}
+.container-fluid.contents,
+.panelContainer,
+.whiteOverlayMask {
+  -moz-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+  -webkit-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.vx_hasOpenSidepanel .whiteOverlayMask {
+  left: -320px;
+  right: 320px;
+}
+.whiteOverlayMask {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #ffffff;
+  opacity: 0;
+  z-index: 1049;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+.whiteOverlayMask.isShown {
+  opacity: 0.4;
+}
+@media (max-width: 640px) {
+  /* Responsive specific CSS */
+  .vx_hasOpenSidepanel .foreground-container,
+  .vx_hasOpenSidepanel .whiteOverlayMask,
+  .vx_hasOpenSidepanel .theoverpanel {
+    left: -290px;
+    right: 290px;
+  }
+  .sidepanel {
+    width: 290px;
+    right: -290px;
+  }
+  .sidepanel .sidepanelContainer .sidepanel-body {
+    height: 80%;
+  }
+}
+/**
+ * iPhone/Smartphones portrait
+ */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+  .vx_hasOpenSidepanel .foreground-container,
+  .vx_hasOpenSidepanel .whiteOverlayMask,
+  .vx_hasOpenSidepanel .theoverpanel {
+    left: -270px;
+    right: 270px;
+  }
+  .sidepanel {
+    width: 270px;
+    right: -270px;
+  }
+  .sidepanel .sidepanelContainer .sidepanel-body {
+    height: 80%;
+  }
+}
+/* Styles for checkbox widget */
+.ppCheckbox {
+  margin-bottom: 15px;
+  padding-left: 38px;
+  width: 100%;
+  position: relative;
+}
+.ppCheckbox.hide {
+  display: none;
+}
+.ppCheckbox input {
+  margin-left: -38px;
+  opacity: 0;
+}
+.ppCheckbox input:focus + label {
+  outline: 1px dotted #999999;
+}
+.ppCheckbox label {
+  margin-top: -35px;
+  margin-left: -10px;
+  margin-bottom: 0;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.ppCheckbox label:hover .icon.icon-checkmark-small:before {
+  border: none;
+}
+.ppCheckbox label:hover .icon:before {
+  border: 1px solid #009cde;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ppCheckbox label .icon:before {
+  padding: 1px 11px 3px 12px;
+  margin-right: 10px;
+  border: 1px solid #cccccc;
+  content: '';
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #ffffff;
+}
+.ppCheckbox label .icon-checkmark-small:before {
+  content: "\e014";
+  padding: 0 5px 6px 6px;
+  border: none;
+  top: -2px;
+  position: relative;
+  background-color: #009cde;
+}
+.ppCheckbox label.hideLabel .icon {
+  display: none;
+}
+.ppCheckbox.radio .icon:before {
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  font-weight: normal;
+}
+.uploader-fileSelector {
+  cursor: pointer;
+}
+.uploader-fileContainer {
+  list-style-type: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+.uploader-fileContainer .uploader-fileItem {
+  border-bottom: 1px dotted #b7bcbf;
+}
+.uploader-fileContainer .uploader-fileItem:first-child {
+  border-top: 1px dotted #b7bcbf;
+}
+.uploader-fileContainer .uploader-fileItem .uploader-fileName {
+  float: left;
+  width: 60%;
+}
+.uploader-fileContainer .uploader-fileItem .uploader-fileSize {
+  float: left;
+  margin-left: 30px;
+}
+.uploader-fileContainer .uploader-fileItem .uploader-removeFile {
+  cursor: pointer;
+  float: right;
+}
+.captchaPlaceholder {
+  margin-top: 35px;
+}
+.captchaPlaceholder .captcha-request {
+  font-size: 1.2em;
+}
+.captchaPlaceholder .textInput {
+  width: 200px;
+  margin-bottom: 0;
+}
+.captchaPlaceholder input {
+  margin-bottom: 0;
+  border-radius: 5px 0 0 5px;
+}
+.captchaPlaceholder .btn {
+  height: 3em;
+  width: 45px;
+  min-width: 45px;
+  margin: 9px 0;
+  border-radius: 0;
+  background-image: url('https://www.paypalobjects.com/webstatic/mktg/consumer/onboarding/ui-sprite.png');
+  text-indent: -9999px;
+}
+.captchaPlaceholder .refresh {
+  background-position: -27px -3386px;
+}
+.captchaPlaceholder .audio {
+  border-radius: 0 5px 5px 0;
+  background-position: -27px -3486px;
+}
+.closeAccountSurvey .closeAccountSurvey-header {
+  display: block;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  margin: 20px 0 15px 0;
+}
+.closeAccountSurvey .checkboxGroup {
+  padding-left: 10px;
+}
+.closeAccountSurvey .checkboxGroup .checkboxGroupError {
+  margin-bottom: 15px;
+}
+.closeAccountSurvey .surveyComments {
+  display: block;
+  height: 135px;
+  width: 80%;
+}
+.closeAccountSurvey .surveyComments.other {
+  height: 95px;
+  width: 75%;
+}
+.addresses-header {
+  margin: 0 !important;
+}
+.addresses .addresses-count {
+  font-size: 13px;
+  margin: 0 0 15px 0 !important;
+  padding: 0;
+  text-align: left;
+}
+.addresses .address div {
+  margin-bottom: 3px;
+}
+.addresses .addresses-status {
+  font-size: 13px;
+  margin: 0 0 15px 0 !important;
+}
+.manageAddresses-alert {
+  margin: 0 0 20px 0;
+}
+h2.manageAddresses-header {
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.manageAddresses .manageAddresses-count {
+  color: #6c7378;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+.manageAddresses .manageAddresses-add {
+  margin: 0 0 50px 0;
+  text-align: center;
+}
+.manageAddresses ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.manageAddresses ul li {
+  border-top: 1px dashed #6c7378;
+  padding: 15px 0;
+}
+.manageAddresses ul li:last-child {
+  border-bottom: 1px dashed #6c7378;
+}
+.manageAddresses ul li .address {
+  font-weight: bold;
+}
+.manageAddresses ul li .manageAddresses-status {
+  color: #6c7378;
+  margin-top: 2px;
+}
+.manageAddresses ul li .manageAddresses-actions {
+  margin: 0;
+}
+.manageAddresses ul li .manageAddresses-actions a {
+  border-left: 1px solid #6c7378;
+  padding: 0 10px;
+}
+.manageAddresses ul li .manageAddresses-actions a:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.addAddress .addAddress-setPrimary {
+  text-align: left !important;
+}
+.editAddress .editAddress-setPrimary {
+  text-align: left !important;
+}
+h2.removeAddress-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.removeAddress .address {
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.removeAddress .address div {
+  margin-bottom: 3px;
+}
+.removeAddress .removeAddress-confirm {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.majorNameChange .uploader-fileSelector {
+  margin: 15px 0 0 0;
+}
+.majorNameChange .fileRequirements {
+  color: #6c7378;
+  font-size: 13px;
+}
+.majorNameChange .mail {
+  margin-bottom: 30px;
+}
+.mailNameChange .address {
+  border-top: 1px dotted #b7bcbf;
+  padding-top: 15px;
+}
+.mailNameChange .address p {
+  margin: 0;
+}
+.mailNameChange .address .company {
+  font-weight: bold;
+}
+.removePermissionsSuccess {
+  margin-bottom: 22px;
+}
+.managePermissions .text {
+  color: #6c7378;
+  margin-bottom: 22px;
+}
+.managePermissions ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.managePermissions ul li {
+  border-top: 1px dashed #6c7378;
+  padding: 15px 0;
+}
+.managePermissions ul li:last-child {
+  border-bottom: 1px dashed #6c7378;
+}
+.managePermissions ul li div.left {
+  float: left;
+}
+.managePermissions ul li div.right {
+  float: right;
+}
+.managePermissions ul li .merchant {
+  margin: 0 0 2px 0;
+}
+.managePermissions ul li .count {
+  color: #6c7378;
+  font-size: 13px;
+  margin: 0;
+}
+.managePermissions ul li .details {
+  margin: 0;
+}
+.managePermissions ul li .remove {
+  margin: 22px 0 2px 0;
+}
+.permissionDetails p.label {
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+.permissionDetails ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.permissionDetails ul li {
+  border-top: 1px dashed #6c7378;
+  cursor: pointer;
+  padding: 15px 0;
+}
+.permissionDetails ul li:last-child {
+  border-bottom: 1px dashed #6c7378;
+}
+.permissionDetails ul li.hideDetails .noDetails {
+  display: block;
+}
+.permissionDetails ul li.hideDetails .details {
+  display: none;
+}
+.permissionDetails ul li p {
+  margin: 0;
+}
+.permissionDetails ul li .noDetails {
+  display: none;
+}
+.permissionDetails ul li .description {
+  display: none;
+}
+.permissionDetails ul li .description p {
+  margin-top: 15px;
+}
+.permissionDetails ul li div.left {
+  float: left;
+  width: 90%;
+}
+.permissionDetails ul li div.right {
+  float: right;
+}
+.removePermissions .text {
+  color: #6c7378;
+  margin-bottom: 22px;
+}
+.settings {
+  font-family: 'PayPal-Sans', sans-serif;
+  /* notifications */
+}
+.settings .col-xs-1,
+.settings .col-sm-1,
+.settings .col-md-1,
+.settings .col-lg-1,
+.settings .col-xs-2,
+.settings .col-sm-2,
+.settings .col-md-2,
+.settings .col-lg-2,
+.settings .col-xs-3,
+.settings .col-sm-3,
+.settings .col-md-3,
+.settings .col-lg-3,
+.settings .col-xs-4,
+.settings .col-sm-4,
+.settings .col-md-4,
+.settings .col-lg-4,
+.settings .col-xs-5,
+.settings .col-sm-5,
+.settings .col-md-5,
+.settings .col-lg-5,
+.settings .col-xs-6,
+.settings .col-sm-6,
+.settings .col-md-6,
+.settings .col-lg-6,
+.settings .col-xs-7,
+.settings .col-sm-7,
+.settings .col-md-7,
+.settings .col-lg-7,
+.settings .col-xs-8,
+.settings .col-sm-8,
+.settings .col-md-8,
+.settings .col-lg-8,
+.settings .col-xs-9,
+.settings .col-sm-9,
+.settings .col-md-9,
+.settings .col-lg-9,
+.settings .col-xs-10,
+.settings .col-sm-10,
+.settings .col-md-10,
+.settings .col-lg-10,
+.settings .col-xs-11,
+.settings .col-sm-11,
+.settings .col-md-11,
+.settings .col-lg-11,
+.settings .col-xs-12,
+.settings .col-sm-12,
+.settings .col-md-12,
+.settings .col-lg-12 {
+  padding-left: 0;
+}
+@media (max-width: 1024px) {
+  .settings .visible-col-md-12.visible-col-md-12.col-md-12 {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .settings .visible-col-xs-12.visible-col-xs-12 {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .settings .visible-col-xs-12 .type.type {
+    font-weight: normal;
+    cursor: auto;
+  }
+}
+.settings .vx_panel .alertMsg p {
+  margin: 0 0 10px;
+}
+.settings .section {
+  padding-left: 0.8em;
+}
+.settings .row {
+  margin: 0;
+}
+.settings .nav {
+  background-color: #0070ba;
+  background-image: linear-gradient(100deg, #0070ba, #1546a0);
+}
+.settings .nav ul {
+  margin: 0 auto;
+  max-width: 930px;
+}
+.settings .nav li {
+  padding: 0 1em;
+  display: inline-block;
+  float: none;
+  line-height: 3.3em;
+  font-size: 20px;
+  color: #ffffff;
+}
+.settings .nav li.active a {
+  font-weight: 400;
+}
+.settings .nav a {
+  font-family: PayPal-Sans-Big, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: .85;
+  color: #ffffff;
+}
+.settings .nav a:focus {
+  outline: thin dotted white;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: 7px;
+}
+.settings .nav-item {
+  position: relative;
+}
+.settings .nav-item.active:after {
+  border-width: 1.1em;
+  bottom: -34px;
+  opacity: 1;
+  visibility: visible;
+}
+.settings .nav-item:after {
+  content: '';
+  height: 0.5em;
+  width: 0;
+  margin-left: -1.5em;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 57%;
+  bottom: -40px;
+  z-index: 3;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-style: solid;
+  border-top-color: #1663AF;
+  border-width: 1.1em;
+}
+.settings .nav-item.account:after {
+  border-top-color: #1368B2;
+}
+.settings .nav-item.security:after {
+  border-top-color: #1764AF;
+}
+.settings .nav-item.payments:after {
+  border-top-color: #1661AE;
+}
+.settings .nav-item.paymentsTab:after {
+  border-top-color: #1661AE;
+}
+.settings .nav-item.notifications:after {
+  border-top-color: #135DAB;
+}
+.settings h2.x-small {
+  font-weight: 500;
+}
+.settings a.plus {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  line-height: 0.5em;
+  color: #2c2e2f;
+  font-size: 2.5em;
+  font-weight: 200;
+}
+.settings a.plus:hover {
+  text-decoration: none;
+}
+.settings .status {
+  color: #3ea134;
+}
+.settings .stage {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 0px;
+}
+.settings .stage .panel {
+  display: none;
+}
+.settings .stage .panel.active {
+  display: block;
+}
+.settings .stage .panel:focus {
+  outline: 0 none;
+}
+.settings .status {
+  color: #666666;
+}
+.settings .account:before,
+.settings .security:before,
+.settings .paymentsTab:before,
+.settings .payments:before {
+  content: '\00a0 ';
+}
+.settings .account .vx_panel,
+.settings .security .vx_panel,
+.settings .paymentsTab .vx_panel,
+.settings .payments .vx_panel,
+.settings .logInWithPaypal .vx_panel {
+  background: #ffffff;
+}
+.settings .account .emails,
+.settings .account .phones {
+  margin-left: 0;
+}
+.settings li {
+  cursor: pointer;
+  list-style-type: none;
+}
+.settings li.inactive {
+  cursor: default;
+}
+.settings .new {
+  -webkit-animation: fadeIn 1000ms 0s ease;
+  -moz-animation: fadeIn 1000ms 0s ease;
+  -ms-animation: fadeIn 1000ms 0s ease;
+  animation: fadeIn 1000ms 0s ease;
+}
+.settings .vx_panel {
+  margin: 1.6em 0 1.2em 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0;
+}
+.settings .vx_panel.address {
+  height: 15em;
+}
+.settings .vx_panel.address .nonPrimaryAddressWrapper {
+  padding-left: 7em;
+}
+.settings .vx_panel h2 {
+  margin-bottom: 0.75em;
+  line-height: 102%;
+  font-size: 1.25em;
+  font-weight: 300;
+}
+.settings .vx_panel ul.picker {
+  height: 3em;
+}
+.settings .vx_panel ul.picker p {
+  line-height: inherit;
+}
+.settings .vx_panel li {
+  margin-left: 0;
+  padding-left: 0;
+  float: none;
+  line-height: 1.5em;
+}
+.settings .vx_panel li:first-child {
+  padding-left: 0;
+}
+.settings .vx_panel p {
+  margin: 0px auto;
+  line-height: 2.0;
+}
+.settings .vx_panel p.additional-text {
+  margin-top: 1em;
+}
+.settings .vx_panel p.x-small {
+  letter-spacing: normal;
+  padding-bottom: 0.5em;
+}
+.settings .vx_panel p.modify {
+  position: absolute;
+}
+.settings .vx_panel .type {
+  font-weight: 500;
+}
+.settings .vx_panel .modify,
+.settings .vx_panel .links {
+  text-align: right;
+}
+.settings .vx_panel .links {
+  text-align: right;
+}
+.settings .vx_panel .links a {
+  padding: 0 0.5em;
+  border-right: 1px solid #2c2e2f;
+}
+.settings .vx_panel .links a:first-child {
+  padding-left: 0;
+}
+.settings .vx_panel .links a:last-child {
+  border: none;
+}
+.settings .vx_panel-address {
+  padding-bottom: 1.3em;
+}
+.settings .vx_panel-payment-settings li {
+  padding: 10px 0;
+}
+.settings .vx_panel-payment-settings .link {
+  padding: 10px 0;
+}
+.settings .nativeDropdown.lap {
+  margin: 0;
+}
+.settings .entryMode {
+  width: 30%;
+  background: none repeat scroll 0 0 padding-box #ffffff;
+  border-color: #e5e5e5 #d9d9d9 #cccccc;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 3px 15px rgba(148, 148, 148, 0.8);
+  padding: 20px;
+}
+.settings .preferred-payment-module {
+  text-align: center;
+}
+.settings .preferred-payment-module a {
+  display: inline-block;
+  margin-right: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 250ms ease;
+  -webkit-font-smoothing: antialiased;
+}
+.settings .options .optionsDropdown,
+.settings .options .selectDropdown {
+  margin-top: 3px;
+}
+.settings .options ul.lined li {
+  padding-top: 0;
+  height: 3.8em;
+  line-height: 3.8em;
+}
+.settings .options .type,
+.settings .options .languageLabel,
+.settings .options .timezoneLabel,
+.settings .options .taxIdValue,
+.settings .options .merchantIdValue,
+.settings .options .links {
+  line-height: 3.5em;
+}
+.settings .options .options-row > p,
+.settings .options .options-row > a {
+  display: block;
+  height: 100%;
+  line-height: 3.5em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.settings .profile-avatarRow {
+  width: 7em;
+  height: 7em;
+  margin: 0em 2em 0em 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.settings .icon {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.settings .profile-updatePhotoLink {
+  display: block;
+  width: 7em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-weight: normal;
+}
+@media (max-width: 1024px) {
+  .settings .profile-updatePhotoLink {
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  .settings .profile-detailColumn {
+    padding-left: 2em;
+  }
+}
+.settings .profileDetail-container {
+  padding-bottom: 0.7em;
+  border-bottom: thin solid #9da3a6;
+}
+.settings .profileDetail-joinedSince {
+  color: #2c2e2f;
+}
+.settings .profileDetail-editName {
+  text-align: right;
+}
+.settings .profile-pplink {
+  padding-top: 0.7em;
+  font-size: 110%;
+}
+.settings .closeAccount-link {
+  display: block;
+  line-height: 3.5em;
+  text-align: right;
+}
+.settings ul.lined li {
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+.settings ul.lined li:first-child {
+  padding-top: 0;
+}
+.settings ul.lined li:last-child {
+  border: none;
+  padding-bottom: 0px;
+}
+.settings .security .vx_panel {
+  min-height: 30em;
+  margin-top: 0;
+}
+.settings .security li {
+  width: 100%;
+  padding-left: 0;
+  float: none;
+  line-height: 4em;
+  border-bottom: 1px solid #dddddd;
+}
+.settings .security .itemTitle {
+  padding-top: 1.5em;
+  line-height: 102%;
+  font-size: 1.25em;
+}
+.settings .security .itemComment {
+  padding-top: 0.625em;
+  padding-bottom: 1.5em;
+  line-height: 1.6;
+  font-size: 0.9375em;
+  font-weight: 400;
+}
+.settings .security .modify {
+  padding-top: 0.625em;
+  padding-bottom: 1.5em;
+  line-height: 100%;
+}
+.settings .security .itemTitleNoComment {
+  padding-top: 1.5em;
+  line-height: 102%;
+  font-size: 1.25em;
+  padding-bottom: 1.5em;
+}
+.settings .security .modifyNoComment {
+  padding-top: 2em;
+}
+.settings ul.unstyled {
+  margin-bottom: 0;
+}
+.settings .section.top > .vx_panel:first-child {
+  margin-top: 0;
+}
+.settings .notifications.hideSms .sms {
+  display: none;
+}
+.settings .notifications .contact a {
+  color: #0d62b3;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.settings .notifications .contact .icon-arrow-right-small {
+  position: absolute;
+  top: 30px;
+}
+.settings .notifications .vx_panel {
+  height: auto;
+  width: 100%;
+  background: none;
+}
+.settings .notifications .header {
+  padding-bottom: 20px;
+}
+.settings .notifications .disabled label {
+  cursor: not-allowed;
+}
+.settings .notifications .icon-arrow-right-small {
+  color: #0d62b3;
+  margin-left: 5px;
+}
+.settings .notifications .section {
+  padding: 1.25em 2em;
+  margin: 1.25em 0;
+  background: #ffffff;
+}
+.settings .notifications .sub {
+  width: 100%;
+}
+.settings .notifications .category {
+  margin-top: 10px;
+  vertical-align: top;
+}
+.settings .notifications .email,
+.settings .notifications .sms {
+  position: relative;
+}
+.settings .notifications .email input,
+.settings .notifications .sms input {
+  float: left;
+  opacity: 0;
+}
+.settings .notifications .email input:focus + label,
+.settings .notifications .sms input:focus + label {
+  outline: 1px dotted #999999;
+}
+.settings .notifications .email .disabled,
+.settings .notifications .sms .disabled {
+  cursor: not-allowed;
+}
+.settings .notifications .email label,
+.settings .notifications .sms label {
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  line-height: 100%;
+  clear: none;
+}
+.settings .notifications .email .icon-email:before {
+  font-size: 24px;
+}
+.settings .notifications .email .icon-email-solid:before {
+  font-size: 24px;
+}
+.settings .notifications .email .icon-email:before,
+.settings .notifications .email .icon-email-solid:before {
+  margin-top: 8px;
+  float: left;
+  width: 29px;
+}
+.settings .notifications .sms .icon-phone:before {
+  width: 30px;
+  font-size: 25px;
+}
+.settings .notifications .sms .icon-phone-solid:before {
+  font-size: 25px;
+}
+.settings .notifications .sms .icon-phone:before,
+.settings .notifications .sms .icon-phone-solid:before {
+  margin-top: 8px;
+}
+.settings .notifications .icon-email:before,
+.settings .notifications .icon-phone:before {
+  display: block;
+  color: #cccccc;
+}
+.settings .notifications .icon-email-solid.checked:before,
+.settings .notifications .icon-phone-solid.checked:before {
+  display: block;
+  color: #0666b3;
+}
+.settings .notifications .notice {
+  padding-top: 1.5em;
+}
+.settings .notificationsTable {
+  width: 90%;
+  margin: 0 5%;
+  background-color: #eeeeee;
+}
+.settings .notiIcon {
+  width: 60px;
+}
+.settings .notiIcon:before {
+  margin-top: 15px;
+  float: left;
+  font-size: 50px;
+  color: #cccccc;
+}
+.settings .emailList,
+.settings .phoneList {
+  min-width: 30%;
+  margin: 2px 30px 0 0;
+}
+.settings .emailList .icon-email:before {
+  margin-top: -2px;
+}
+.settings .emailList .contact {
+  padding-left: 72px;
+}
+.settings .phoneList .icon-phone:before {
+  margin-top: 4px;
+}
+.settings .phoneList .contact {
+  padding-left: 52px;
+}
+.settings .contact {
+  position: relative;
+  margin-top: -20px;
+}
+.settings .contact p {
+  display: inline-block;
+}
+.settings .smsContact p {
+  display: block;
+}
+.settings .notiRow {
+  padding: 15px 0;
+}
+.settings .notiRow:not(:last-child) {
+  border-bottom: 1px solid #dddddd;
+}
+.settings .letmeknow,
+.settings .statements {
+  padding: 0.8em 0 0.2em;
+  color: #666666;
+  border-bottom: none;
+}
+.settings .newsletter .notiRow {
+  border-bottom: 0;
+  padding: 0.5em 0 0.1em;
+}
+.settings .privacy .notiRow {
+  padding-top: 0.4em;
+}
+.settings .statements {
+  padding: 15px 0;
+}
+.settings .statementType {
+  position: relative;
+}
+.settings .statementType a {
+  position: absolute;
+  right: 0;
+}
+.settings .paymentsTab .toggleBtnGroup,
+.settings .payments .toggleBtnGroup {
+  text-align: center;
+}
+.settings .paymentsTab .toggleBtnGroup .btn,
+.settings .payments .toggleBtnGroup .btn {
+  min-width: 100px;
+}
+.settings .paymentsTab .vx_panel-payments,
+.settings .payments .vx_panel-payments {
+  padding-left: 1.5em;
+}
+.settings .paymentsTab .btn-payments-panel,
+.settings .payments .btn-payments-panel {
+  margin-top: 1em;
+}
+.settings .paymentsTab .wallet-link,
+.settings .payments .wallet-link {
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+.settings .paymentsTab .instruments,
+.settings .payments .instruments {
+  margin-top: 20px;
+}
+.settings .paymentsTab .addFI,
+.settings .payments .addFI {
+  display: block;
+  padding: 10px 0 70px;
+  margin: 30px auto 0;
+  width: 265px;
+  text-align: center;
+  border-radius: 10px;
+  color: #999999;
+  background: #eeeeee;
+  font-size: 1.142857142857143em;
+  font-size: 1.25rem;
+  line-height: 1.05em;
+}
+.settings .paymentsTab .addFI span,
+.settings .payments .addFI span {
+  margin-top: 10%;
+  display: block;
+  color: #999999;
+}
+.settings .paymentsTab .cards,
+.settings .payments .cards {
+  position: relative;
+  padding-top: 1em;
+  margin-left: 0;
+  text-align: left;
+}
+.settings .paymentsTab .cards .disabled,
+.settings .payments .cards .disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.settings .paymentsTab .cards li,
+.settings .payments .cards li {
+  list-style: none;
+  border-top: 1px solid #eeeeee;
+  background: url('https://www.paypalobjects.com/webstatic/sprite/sprite_logos_wallet_2x.png');
+  background-repeat: no-repeat;
+  background-position: 10px -488px;
+  /* Smart Connect */
+  /* eBay MasterCard */
+  /* PayPal Extras */
+}
+.settings .paymentsTab .cards li.bank,
+.settings .payments .cards li.bank {
+  background: url("https://www.paypalobjects.com/webstatic/icon/generic-bank_2x.png") no-repeat;
+  background-size: 30px;
+  background-position: 17px 50%;
+}
+.settings .paymentsTab .cards li.smartConnect,
+.settings .payments .cards li.smartConnect {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/PP_Smart_Connect_large.png") no-repeat;
+  background-size: 30px;
+  background-position: 17px 50%;
+}
+.settings .paymentsTab .cards li.ebayMastercard,
+.settings .payments .cards li.ebayMastercard {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/eBay_MasterCard_large.png") no-repeat;
+  background-size: 39px;
+  background-position: 11px 50%;
+}
+.settings .paymentsTab .cards li.paypalMastercard,
+.settings .payments .cards li.paypalMastercard {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/PayPal-MasterCard-Wallet-Large.png") no-repeat;
+  background-size: 65px;
+  background-position: 0px 50%;
+}
+.settings .paymentsTab .cards li.ppCredit,
+.settings .payments .cards li.ppCredit {
+  background-position: 21px 10px;
+  background-size: 47px;
+}
+.settings .paymentsTab .cards li[data-ctype="CREDIT"],
+.settings .payments .cards li[data-ctype="CREDIT"] {
+  background: url(https://www.paypalobjects.com/webstatic/credit/img/pp_credit_big.png);
+  background-repeat: no-repeat;
+  background-size: 2.35em;
+  background-position: 13px 5px;
+}
+.settings .paymentsTab .cards li[data-ctype="VISA"],
+.settings .payments .cards li[data-ctype="VISA"] {
+  background-position: 10px -84px;
+}
+.settings .paymentsTab .cards li[data-ctype="MASTER_CARD"],
+.settings .payments .cards li[data-ctype="MASTER_CARD"] {
+  background-position: 10px -191px;
+}
+.settings .paymentsTab .cards li[data-ctype="AMEX"],
+.settings .payments .cards li[data-ctype="AMEX"] {
+  background-position: 13px -290px;
+}
+.settings .paymentsTab .cards li[data-ctype="DISCOVER"],
+.settings .payments .cards li[data-ctype="DISCOVER"] {
+  background-position: 10px -587px;
+}
+.settings .paymentsTab .cards li[data-ctype="BUYER_CREDIT_VIRTUAL_LINE"],
+.settings .payments .cards li[data-ctype="BUYER_CREDIT_VIRTUAL_LINE"] {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/PP_Smart_Connect_large.png") no-repeat;
+  background-size: 30px;
+  background-position: 17px 50%;
+}
+.settings .paymentsTab .cards li[data-ctype="DUAL_CARD_EBAY"],
+.settings .payments .cards li[data-ctype="DUAL_CARD_EBAY"] {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/eBay_MasterCard_large.png") no-repeat;
+  background-size: 39px;
+  background-position: 11px 50%;
+}
+.settings .paymentsTab .cards li[data-ctype="DUAL_CARD_PLUS"],
+.settings .payments .cards li[data-ctype="DUAL_CARD_PLUS"] {
+  background: url("https://www.paypalobjects.com/ui-web/wallet-icons/bank/PayPal-MasterCard-Wallet-Large.png") no-repeat;
+  background-size: 65px;
+  background-position: 0px 50%;
+}
+.settings .paymentsTab .cards li:last-child,
+.settings .payments .cards li:last-child {
+  border-bottom: 1px solid #eeeeee;
+}
+.settings .paymentsTab .cards label,
+.settings .payments .cards label {
+  display: block;
+  margin: 0;
+  padding: 10px 70px;
+  cursor: pointer;
+}
+.settings .paymentsTab .cards input,
+.settings .payments .cards input {
+  position: absolute;
+  opacity: 0;
+}
+.settings .paymentsTab .cards .paypalCredit,
+.settings .payments .cards .paypalCredit {
+  padding-left: 0;
+}
+.settings .paymentsTab .cards .paypalCredit:before,
+.settings .payments .cards .paypalCredit:before {
+  padding-left: 13px;
+  margin-top: 9px;
+  float: left;
+  font-size: 20px;
+}
+.settings .paymentsTab .cards .bank,
+.settings .payments .cards .bank {
+  background: none;
+}
+.settings .paymentsTab .cards .bank label,
+.settings .payments .cards .bank label {
+  padding: 11px 0 11px 70px;
+}
+.settings .paymentsTab .cards .unconfirmed,
+.settings .payments .cards .unconfirmed {
+  margin-left: 70px;
+  padding-bottom: 11px;
+  display: block;
+}
+.settings .paymentsTab .cards .chooseCheckout,
+.settings .payments .cards .chooseCheckout {
+  background: none;
+}
+.settings .paymentsTab .cards .chooseCheckout .icon-credit-card,
+.settings .payments .cards .chooseCheckout .icon-credit-card {
+  padding-right: 16px;
+  position: absolute;
+  top: 4px;
+  left: 37px;
+}
+.settings .paymentsTab .cards .chooseCheckout .icon-credit-card:before,
+.settings .payments .cards .chooseCheckout .icon-credit-card:before {
+  font-size: 35px;
+}
+.settings .paymentsTab .cards .credit-card-icon,
+.settings .payments .cards .credit-card-icon {
+  font-size: 36px;
+}
+.settings .paymentsTab .cards .credit-card-icon:before,
+.settings .payments .cards .credit-card-icon:before {
+  float: left;
+  margin: -6px 0 0 6px;
+}
+.settings .paymentsTab .cards li.checked,
+.settings .payments .cards li.checked {
+  border-top: 1px solid #a8d7e9;
+  border-bottom: 1px solid #a8d7e9;
+  background-color: #fafdfe;
+}
+.settings .paymentsTab .cards li.checked label,
+.settings .payments .cards li.checked label {
+  padding-right: 70px;
+}
+.settings .paymentsTab .cards .icon-checkmark-small:before,
+.settings .payments .cards .icon-checkmark-small:before {
+  position: absolute;
+  right: 2%;
+  color: #0078c0;
+  font-size: 35px;
+}
+.settings .paymentsTab .cards .cb,
+.settings .payments .cards .cb {
+  position: relative;
+  margin: 0 5px;
+}
+.settings .paymentsTab .balance,
+.settings .payments .balance {
+  margin: 30px 0 30px 15px;
+}
+.settings .paymentsTab .balance .icon-info-large:before,
+.settings .payments .balance .icon-info-large:before {
+  font-size: 25px;
+  font-weight: 500;
+  color: #666666;
+}
+.settings .paymentsTab .balance .icon-checkmark-small:before,
+.settings .payments .balance .icon-checkmark-small:before {
+  padding: 0.5px 3px 2.7px 4px;
+  margin-right: 7.5px;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #3ea134;
+  border-radius: 10px;
+}
+.settings .paymentsTab .enableCard,
+.settings .payments .enableCard {
+  display: none;
+  text-align: center;
+  padding: 0 5%;
+}
+.settings .paymentsTab .preapproved,
+.settings .payments .preapproved {
+  margin-top: 20px;
+}
+.settings .paymentsTab .disclaimer a,
+.settings .payments .disclaimer a,
+.settings .paymentsTab .preapproved a,
+.settings .payments .preapproved a {
+  font-size: 1em;
+}
+.settings .paymentsTab .disclaimer,
+.settings .payments .disclaimer {
+  margin-top: 3em;
+  line-height: 1.6;
+}
+.settings .paymentsTab .policy,
+.settings .payments .policy {
+  color: #666666;
+}
+.settings .paymentsTab .btn-group > .btn,
+.settings .payments .btn-group > .btn {
+  width: 50%;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  background: #f8f8f8;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: #999999;
+}
+.settings .paymentsTab .btn-group > .btn.checked,
+.settings .payments .btn-group > .btn.checked {
+  background: #0d62b3;
+  color: #ffffff;
+}
+.settings .paymentsTab .amount,
+.settings .payments .amount {
+  text-align: right;
+}
+.settings .paymentsTab .amount .status,
+.settings .payments .amount .status {
+  margin-left: 0.5em;
+  color: #3ea134;
+  font-weight: 500;
+}
+.settings .paymentsTab .pad-title,
+.settings .payments .pad-title {
+  text-align: center;
+}
+.settings .paymentsTab .pad-button,
+.settings .payments .pad-button {
+  text-align: center;
+  margin-top: 1.7em;
+}
+.profilePhotoParent:hover .new-user-icon:after {
+  position: absolute;
+  width: 7em;
+  height: 7em;
+  left: 0;
+  top: 0;
+  padding: 36px 0 0;
+  content: attr(data-hover-text);
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: 500;
+  font-family: sans-serif;
+  white-space: normal;
+  background: rgba(0, 0, 0, 0.3);
+}
+.profile-avatarPhotoContainer {
+  background: #50c7f9;
+}
+.profile-avatarPhotoContainer .profilePhotoParent {
+  position: relative;
+  display: block;
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-avatarPhotoContainer:hover {
+  cursor: default;
+}
+.profile-avatarPhotoContainer.hasFileReader:hover {
+  cursor: pointer;
+}
+.landscape .profilePhoto {
+  max-width: 14em;
+  max-height: 7em;
+  position: absolute;
+}
+.portrait .profilePhoto {
+  max-width: 7em;
+  position: absolute;
+}
+.square .profilePhoto {
+  max-height: 7em;
+}
+.userIconContainer .icon-profile-add-large {
+  margin: 0.4em 0 0 -0.15em;
+}
+.profile-avatarRow .icon {
+  overflow: hidden;
+  position: absolute;
+  height: 7em;
+  width: 7em;
+  border-radius: 50%;
+  background-color: #4cbbe8;
+}
+.profile-avatarRow .icon:before {
+  display: block;
+  margin: 50px 0 0 -18px;
+  font-size: 115px;
+  color: #0079ad;
+}
+/* overpanel */
+.overpanel-container {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+.theoverpanel {
+  background: #f4f6f9;
+}
+.theoverpanel .overpanel-wrapper {
+  height: 100%;
+  width: 636px;
+  margin: 0px auto;
+}
+.theoverpanel .overpanel-header .icon {
+  color: #299976;
+  text-align: center;
+  height: 8em;
+}
+.theoverpanel .cb {
+  margin: 2em 0;
+}
+.theoverpanel .alertMsg:before {
+  top: 9px;
+  width: 25px;
+  height: 21px;
+}
+.theoverpanel .alertMsg p {
+  margin: 0 0 10px;
+}
+.theoverpanel .button {
+  margin: 2em 0;
+  text-align: center;
+}
+.theoverpanel .textInput {
+  z-index: 1;
+}
+.theoverpanel .nativeDropdown.lap {
+  margin: 0;
+}
+.theoverpanel .nativeDropdown.lap.countryDropdown {
+  margin-bottom: 15px;
+}
+.theoverpanel .phoneInput {
+  position: relative;
+  display: block;
+}
+.theoverpanel .phoneInput .phoneNumber input {
+  -webkit-border-top-right-radius: 5px !important;
+  -webkit-border-bottom-right-radius: 5px !important;
+  -webkit-border-bottom-left-radius: 5px !important;
+  -webkit-border-top-left-radius: 5px !important;
+  -moz-border-radius-topright: 5px !important;
+  -moz-border-radius-bottomright: 5px !important;
+  -moz-border-radius-bottomleft: 5px !important;
+  -moz-border-radius-topleft: 5px !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+  -moz-background-clip: padding !important;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+}
+.theoverpanel .phoneInput .phoneTypeDropdown .selectDropdown {
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  z-index: 1;
+}
+.theoverpanel .confirm-email {
+  position: relative;
+  height: 1em;
+}
+.theoverpanel .confirm-email .confirm,
+.theoverpanel .confirm-email .send,
+.theoverpanel .confirm-email .done {
+  display: none;
+}
+.theoverpanel .confirm-email .visible {
+  display: block;
+}
+.theoverpanel .confirm-email.active .confirm {
+  z-index: 1;
+}
+.theoverpanel .confirm-email.active .confirm,
+.theoverpanel .confirm-email.active .send,
+.theoverpanel .confirm-email.active .done {
+  position: absolute;
+  opacity: 0;
+  display: block;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+.theoverpanel .confirm-email.active .visible {
+  opacity: 1;
+}
+.theoverpanel .success.icon-checkmark-small {
+  margin: 15% 0 30px;
+  text-align: center;
+}
+.theoverpanel .success.icon-checkmark-small:before {
+  padding: 10px 9px;
+  color: #3ea134;
+}
+.theoverpanel .nameChangeSelection {
+  padding-left: 30px;
+}
+.theoverpanel .captchaPlaceholder .textInput {
+  margin: 9px 1px;
+  display: inline-block;
+}
+.theoverpanel .captchaPlaceholder .btn {
+  display: inline-block;
+}
+.theoverpanel .content-large {
+  font-size: 30px;
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.theoverpanel .content-comment {
+  text-align: center;
+  margin: 0;
+}
+.theoverpanel .center {
+  text-align: center;
+}
+.theoverpanel .h2 .center {
+  text-align: center;
+}
+.theoverpanel .nameEdit {
+  margin-top: 30px;
+}
+.theoverpanel .nameEdit .choiceBox {
+  cursor: pointer;
+  display: block;
+  font-weight: normal;
+  margin: 0 auto 10px;
+  padding: 25px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  border-color: #cbd2d6;
+  text-align: center;
+  text-decoration: none;
+  width: 300px;
+}
+.theoverpanel .nameEdit .choiceBox .icon {
+  color: #0070ba;
+  display: block;
+  margin: 15px auto 35px;
+  font-size: 50px;
+}
+.theoverpanel .nameEdit .choiceBox .choiceTitle {
+  display: block;
+  font-size: 20px;
+  color: #0070ba;
+  margin: 0 auto 8px;
+}
+.theoverpanel .nameEdit .choiceBox .choiceComment {
+  color: #6c7378;
+  display: block;
+  font-size: 13px;
+  margin: 0 auto;
+}
+.theoverpanel .nameEdit .choiceBox:hover .choiceTitle {
+  text-decoration: underline;
+}
+.theoverpanel .consent,
+.notifications .consent {
+  height: 200px;
+  margin-bottom: 2em;
+  background-color: #eeeeee;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.theoverpanel .consent p:first-child,
+.notifications .consent p:first-child {
+  margin-top: 0px;
+}
+.theoverpanel .agreeConsent li,
+.notifications .agreeConsent li {
+  line-height: 200%;
+}
+.theoverpanel .cbName,
+.notifications .cbName {
+  margin-top: 6px;
+}
+.sidepanelContainer {
+  background-color: #000;
+  color: white;
+}
+.sidepanelContainer .content {
+  padding: 15px;
+  height: 85%;
+  overflow: scroll;
+}
+.sidepanelContainer ul {
+  margin-left: 0;
+}
+.sidepanelContainer ul li {
+  color: white;
+  border-bottom: 1px solid #444444;
+  list-style: none;
+  padding: 25px;
+}
+.sidepanelContainer ul li.primary {
+  color: white;
+  background-color: #0666b3;
+}
+.sidepanelContainer ul li .icon-checkmark-small:before {
+  position: absolute;
+  float: right;
+  right: 20px;
+  margin-top: 5px;
+}
+.sidepanelContainer .emailFormat {
+  padding: 25px;
+}
+.sidepanelContainer .emailFormat label {
+  color: white;
+}
+.sidepanelContainer .emailFormat label.html {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.sidepanelContainer .emailFormat label.text {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.sidepanelContainer .emailFormat p {
+  font-weight: 500;
+}
+.sidepanelContainer .type {
+  display: inline-block;
+  padding: 10px 25px;
+  cursor: pointer;
+  color: #666666;
+  background-color: #444444;
+}
+.sidepanelContainer .type.checked {
+  background-color: #0666b3;
+}
+.tabularItems-notFound {
+  margin-top: 2em;
+}
+.tabularItems {
+  width: 100%;
+  margin: 30px 0;
+}
+.tabularItems .tabularItems-row {
+  border-bottom: 1px solid #dddddd;
+  line-height: 3em;
+}
+.tabularItems .tabularItems-action {
+  padding-right: 5px;
+  width: 20%;
+}
+.securityKeys-row {
+  margin-left: inherit;
+  padding: 1.5em 0 3em 0;
+  border-top: 1px solid #cbd2d6;
+}
+.securityKeys-row:last-child {
+  border-bottom: 1px solid #cbd2d6;
+  margin-bottom: 1em;
+}
+.securityKeys-row_support {
+  color: #2c2e2f;
+  padding-left: 0.5em;
+  font-size: 96%;
+}
+.securityKeys-row_actionLink {
+  text-align: right;
+}
+.securityKey-actionLink {
+  padding: 0 6px;
+}
+.securityKey-consent {
+  font-size: 92%;
+}
+.securityKey-termsConditions_body {
+  font-size: 92%;
+}
+.securityKey-link_add {
+  padding-top: 1em;
+}
+.securityKeyPhone-desc {
+  font-weight: 500;
+}
+.logInWithPaypal .alertMsg {
+  background-color: #ffffff;
+  margin-top: 2em;
+}
+.logInWithPaypal .tabularItems {
+  text-align: left;
+}
+.logInWithPaypal .tabularItems .tabularItems-action {
+  text-align: right;
+}
+.mobileDevices .mobileDevices-name {
+  width: 80%;
+}
+.mobileDevices .mobileDevices-name,
+.mobileDevices .mobileDevices-type {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.browser-deleteAll.browser-deleteAll {
+  margin: 30px 0;
+}
+.alertMsg:before {
+  top: 8px;
+}
+.phoneForm p {
+  margin-bottom: 20px;
+}
+.phoneForm .confirmAlert {
+  margin-bottom: 30px;
+}
+.phoneForm .confirmAlert span {
+  color: #777777;
+}
+.phoneForm .primaryPhone {
+  margin-bottom: 30px;
+}
+@media (max-width: 640px) {
+  .settings .nav li {
+    line-height: 2.85;
+  }
+}
+.emailWarning {
+  font-size: 13px;
+}
+.panelContent {
+  text-align: center;
+  border-radius: 6px !important;
+  border: 1px solid #e1e7eb;
+}
+.panelBtn {
+  margin-top: 1.3125em;
+  margin-bottom: 0px;
+}
+.panelDetails {
+  max-width: 36.4rem;
+  line-height: 2.0;
+  margin: 0px auto;
+}
+.panelHeader {
+  margin-top: 1.467rem;
+  margin-bottom: 1.067rem;
+}
+.balance {
+  text-align: left;
+}
+.paymentsIcon {
+  padding-top: 24px;
+}
+.connectedPaymentsIcon {
+  max-width: 5.6rem;
+}
+.pad-icon {
+  max-width: 6.9333rem;
+}
+.online-icon {
+  max-width: 3rem;
+}
+.instore-icon {
+  max-width: 2.667rem;
+}
+.instoreWrapper {
+  width: 100%;
+  display: flex;
+}
+.messengerIcon {
+  width: 1em;
+  height: 1em;
+  margin-right: 6px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  background: url("https://www.paypalobjects.com/images/shared/messenger@2x.png") no-repeat;
+  background-size: 100%;
+}
+.messengerCheckbox {
+  margin: 18px 1em;
+}
+.notification-consent {
+  text-align: center;
+  max-width: 330px;
+  margin: 0px auto;
+}
+.txtCenter {
+  text-align: center;
+}
+.txtLeft {
+  text-align: left;
+}
+.btn-consent {
+  width: 330px;
+}
+.paperStatements {
+  max-width: 330px;
+  margin: 0px auto;
+  text-align: center;
+  margin-top: 20px;
+}
+.choice-icon {
+  max-width: 80px;
+}
+.choiceCopy {
+  padding-bottom: 24px;
+  border-bottom: 1px dotted #cbd2d6;
+}
+.choiceBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px dotted #cbd2d6;
+}
+.preference {
+  display: flex;
+  align-items: flex-start;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #2c2e2f;
+}
+.changePreference {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+}
+.changePreference a {
+  font-size: 13px;
+}
+.choiceOnlineIcon {
+  max-width: 35px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.choiceInstoreIcon {
+  max-width: 35px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.metaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.metaDetails {
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.62;
+  letter-spacing: normal;
+  color: #2c2e2f;
+}
+.acctNumber {
+  color: #6c7378;
+}
+.choicePanel {
+  padding-bottom: 30px;
+}
+.cpListItem-container {
+  position: relative;
+  min-height: 3rem;
+  border-bottom: 1px dotted #cbd2d6;
+}
+.cpListItem-row {
+  min-height: 4.5rem;
+  height: 0;
+  padding: .4rem 0;
+}
+.table-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.fx_radio label:before {
+  font-family: 'consumer-icons';
+  display: inline-block;
+  vertical-align: top;
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 12px 0 0;
+  margin-top: 8px;
+  padding: 0.4em 0.1em;
+  border: 1px solid #2c2e2f;
+  content: '';
+  font-size: 25px;
+  line-height: 0;
+}
+.vx_checkbox label:before,
+.vx_radio label:before {
+  font-size: 17px !important;
+}
+.vx_checkbox label,
+.vx_radio label {
+  line-height: 1.2em !important;
+}
+.vx_checkbox,
+.vx_radio {
+  width: 100%;
+  position: relative;
+}
+.vx_checkbox input,
+.vx_radio input {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+.vx_checkbox input:focus + label:before,
+.vx_radio input:focus + label:before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.vx_checkbox input:checked + label:before,
+.vx_radio input:checked + label:before {
+  content: "\2611";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-color: #0092d1;
+  color: #FFFFFF;
+  background-color: #0092d1;
+}
+.vx_checkbox label,
+.vx_radio label {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 2em;
+}
+.vx_checkbox label:before,
+.vx_radio label:before {
+  font-family: 'consumer-icons';
+  display: inline-block;
+  vertical-align: top;
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 12px 0 0;
+  padding: 0.4em 0.1em;
+  border: 1px solid #2c2e2f;
+  content: '';
+  font-size: 25px;
+  line-height: 0;
+  border-radius: 2px;
+}
+.vx_checkbox.vx_has-error input:checked + label:before,
+.vx_radio.vx_has-error input:checked + label:before {
+  border-color: #D20000;
+  background: #D20000;
+}
+.vx_checkbox.vx_has-error label:before,
+.vx_radio.vx_has-error label:before {
+  border-color: #D20000;
+}
+.vx_checkbox.vx_has-error:after,
+.vx_radio.vx_has-error:after {
+  font-family: 'consumer-icons';
+  display: inline-block;
+  vertical-align: middle;
+  content: "\26A0";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.75em;
+  line-height: 0;
+  position: relative;
+  top: -3px;
+  padding-left: 5px;
+}
+.vx_checkbox.vx_is-disabled,
+.vx_radio.vx_is-disabled {
+  cursor: not-allowed;
+}
+.vx_checkbox.vx_is-disabled input:checked + label:before,
+.vx_radio.vx_is-disabled input:checked + label:before {
+  border-color: #6C7378;
+  background: #6C7378;
+}
+.vx_checkbox.vx_is-disabled label:before,
+.vx_radio.vx_is-disabled label:before {
+  border-color: #6C7378;
+  cursor: not-allowed;
+}
+.vx_checkbox.vx_is-disabled label,
+.vx_radio.vx_is-disabled label {
+  color: #6C7378;
+  cursor: not-allowed;
+}
+.vx_radio input:checked + label:before {
+  content: '';
+  border-color: #0092d1;
+  background-color: #0092d1;
+  box-shadow: inset 0 0 0 5px #FFFFFF;
+}
+.vx_radio label:before {
+  border-radius: 100%;
+}
+.fiOverpanel-radio {
+  margin-top: 15px;
+}
+.fiLabel {
+  display: flex !important;
+}
+.cpListItem-col,
+.cpListItem-col_offset {
+  padding: 0 5px;
+  vertical-align: middle;
+}
+.cpListItem-col_offset {
+  padding-left: 2.25rem;
+  box-sizing: content-box;
+  width: 3.5rem;
+}
+.cpListItem-typeIcon {
+  width: 4rem;
+  text-align: center;
+  padding: 0 5px 0 16px;
+}
+.cpListItem-typeIconImage {
+  vertical-align: middle;
+}
+.cpListItem-typeIcon_offer {
+  text-align: center;
+}
+.changeFI-wrapper {
+  text-align: left;
+}
+.changeFI {
+  padding: 0 5px;
+}
+.rectangleLogo_small {
+  width: 3.2em;
+  height: 2.1em;
+  margin: 0 auto;
+  border-radius: 4px;
+  display: inline-block;
+}
+.shadow {
+  box-shadow: 0 4px 8px #CBD2D6;
+}
+.flexx {
+  display: flex;
+}
+.xFour {
+  display: block;
+  font-size: 13px;
+  line-height: 1.38;
+  color: #2c2e2f;
+}
+.rectangleLogo_small.paypalCredit {
+  max-width: 100%;
+  background-size: 100%;
+  background-image: url(https://www.paypalobjects.com/webstatic/credit/img/pp_credit_big.png);
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+}
+.cpListItem-typeIconImage {
+  vertical-align: middle;
+}
+.cpListItem-header,
+.cpListItem-identifier {
+  font-weight: 400;
+}
+.fi-lastDigits {
+  white-space: nowrap;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+.fiOverpanelWrapper {
+  width: 294px;
+  margin: 0px auto;
+}
+.fiVXPanel {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.fiChoice-info {
+  font-size: 13px;
+  line-height: 1.62;
+  color: #6c7378;
+  font-weight: 300;
+  padding-bottom: 12px;
+}
+.morePaymentInfo {
+  padding-bottom: 18px;
+  border-bottom: 1px dotted #cbd2d6;
+}
+#fiHeader {
+  font-size: 30px;
+}
+.fiFormattedName {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.27;
+  color: #2c2e2f;
+}
+.newCard {
+  text-align: center;
+}
+.etoilesLogo,
+.amexLogo,
+.AMEX,
+.auraLogo,
+.auroraLogo,
+.banamexLogo,
+.bancomerLogo,
+.banorteLogo,
+.carte-auroreLogo,
+.cbLogo,
+.cetelemLogo,
+.china-union-payLogo,
+.cofidisLogo,
+.cofinogaLogo,
+.deltaLogo,
+.dinersLogo,
+.discoverLogo,
+.ecLogo,
+.eloLogo,
+.hiperLogo,
+.hipercardLogo,
+.hsbcLogo,
+.jcbLogo,
+.maestroLogo,
+.MASTER_CARD,
+.postepayLogo,
+.qiwi-visaLogo,
+.santanderLogo,
+.soloLogo,
+.starLogo,
+.switchLogo,
+.visa-electronLogo,
+.visaLogo,
+.VISA,
+.MASTER_CARD {
+  max-width: 100%;
+  background-size: 100%;
+  background-image: url(https://www.paypalobjects.com/ui-web/wallet-icons/small_card_sprite.png);
+}
+.etoilesLogo {
+  background-position: 0 0;
+  background-size: 100%;
+}
+.amexLogo {
+  background-position: 0 3.75%;
+  background-size: 100%;
+}
+.auraLogo {
+  background-position: 0 6.451613%;
+  background-size: 100%;
+}
+.auroraLogo {
+  background-position: 0 9.677419%;
+  background-size: 100%;
+}
+.banamexLogo {
+  background-position: 0 12.903226%;
+  background-size: 100%;
+}
+.bancomerLogo {
+  background-position: 0 16.129032%;
+  background-size: 100%;
+}
+.banorteLogo {
+  background-position: 0 19.354839%;
+  background-size: 100%;
+}
+.carte-auroreLogo {
+  background-position: 0 22.580645%;
+  background-size: 100%;
+}
+.cbLogo {
+  background-position: 0 25.806452%;
+  background-size: 100%;
+}
+.cetelemLogo {
+  background-position: 0 29.032258%;
+  background-size: 100%;
+}
+.china-union-payLogo {
+  background-position: 0 32.258065%;
+  background-size: 100%;
+}
+.cofidisLogo {
+  background-position: 0 35.483871%;
+  background-size: 100%;
+}
+.cofinogaLogo {
+  background-position: 0 38.709677%;
+  background-size: 100%;
+}
+.deltaLogo {
+  background-position: 0 41.935484%;
+  background-size: 100%;
+}
+.dinersLogo {
+  background-position: 0 45.16129%;
+  background-size: 100%;
+}
+.discoverLogo {
+  background-position: 0 48.387097%;
+  background-size: 100%;
+}
+.ecLogo {
+  background-position: 0 51.612903%;
+  background-size: 100%;
+}
+.eloLogo {
+  background-position: 0 54.83871%;
+  background-size: 100%;
+}
+.hiperLogo {
+  background-position: 0 58.064516%;
+  background-size: 100%;
+}
+.hipercardLogo {
+  background-position: 0 61.290323%;
+  background-size: 100%;
+}
+.hsbcLogo {
+  background-position: 0 64.516129%;
+  background-size: 100%;
+}
+.jcbLogo {
+  background-position: 0 67.741935%;
+  background-size: 100%;
+}
+.maestroLogo {
+  background-position: 0 70.967742%;
+  background-size: 100%;
+}
+.master_cardLogo {
+  background-position: 0 73.9%;
+  background-size: 100%;
+}
+.MASTER_CARD {
+  background-position: 0 73.9%;
+  background-size: 100%;
+}
+.postepayLogo {
+  background-position: 0 77.419355%;
+  background-size: 100%;
+}
+.qiwi-visaLogo {
+  background-position: 0 80.645161%;
+  background-size: 100%;
+}
+.santanderLogo {
+  background-position: 0 83.870968%;
+  background-size: 100%;
+}
+.soloLogo {
+  background-position: 0 87.096774%;
+  background-size: 100%;
+}
+.starLogo {
+  background-position: 0 90.322581%;
+  background-size: 100%;
+}
+.switchLogo {
+  background-position: 0 93.548387%;
+  background-size: 100%;
+}
+.visa-electronLogo {
+  background-position: 0 96.774194%;
+  background-size: 100%;
+}
+.visaLogo {
+  background-position: 0 99.4%;
+  background-size: 100%;
+}
+.VISA {
+  background-position: 0 99.4%;
+  background-size: 100%;
+}
+.AMEX {
+  background-position: 0px 3.75%;
+}
+.bank-icon {
+  background-image: url('https://www.paypalobjects.com/ui-web/wallet-icons/bank-icons_sprite.png');
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 30px;
+  background-position: -5px -285px;
+}
+.fiListName {
+  width: 190px;
+}
+.devicesContext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.devicesRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #dddddd;
+  line-height: 1.6em;
+  padding: 10px 0;
+}
+.devicesCell {
+  display: flex;
+  align-self: auto;
+  justify-content: space-between;
+  padding-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav {
+  background-color: #0070ba;
+  background-image: linear-gradient(100deg, #0070ba, #1546a0);
+}
+.nav ul {
+  margin: 0 auto;
+  max-width: 930px;
+}
+.nav li {
+  padding: 0 1em;
+  display: inline-block;
+  float: none;
+  line-height: 3.3em;
+  font-size: 20px;
+  color: #ffffff;
+}
+.nav li a {
+  color: #ffffff;
+}
+.nav li.active a {
+  font-weight: 400;
+}
+.nav a {
+  font-family: PayPal-Sans-Big, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: .85;
+  color: #ffffff;
+}
+.nav a:focus {
+  outline: thin dotted white;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: 7px;
+}
+.nav-item {
+  position: relative;
+}
+.nav-item.active:after {
+  border-width: 1.1em;
+  bottom: -34px;
+  opacity: 1;
+  visibility: visible;
+}
+.nav-item:after {
+  content: '';
+  height: 0.5em;
+  width: 0;
+  margin-left: -1.5em;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 57%;
+  bottom: -40px;
+  z-index: 3;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-style: solid;
+  border-top-color: #1663AF;
+  border-width: 1.1em;
+}
+.nav-item.account:after {
+  border-top-color: #1368B2;
+}
+.nav-item.security:after {
+  border-top-color: #1764AF;
+}
+.nav-item.paymentsTab:after {
+  border-top-color: #1661AE;
+}
+.nav-item.notifications:after {
+  border-top-color: #135DAB;
+}
+#WhiteNav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #cbd2d6;
+  background-image: none;
+  height: 60px;
+}
+#WhiteNav .navWrapper {
+  max-width: 1024px;
+  margin: 0px auto;
+}
+#WhiteNav ul {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 704px;
+  height: 60px;
+  margin-left: 20px;
+}
+#WhiteNav h2 {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #2c2e2f;
+  margin-top: -3px;
+  margin-bottom: 0px;
+  height: 60px;
+  line-height: 0;
+  font-size: 24px;
+  font-family: PayPal-Sans-Big, sans-serif;
+  font-weight: 400;
+}
+#WhiteNav li {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0em;
+  font-size: 20px;
+  color: #6c7378;
+  height: 60px;
+}
+#WhiteNav li.active a {
+  color: #2c2e2f;
+}
+#WhiteNav a {
+  font-family: PayPal-Sans-Big, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  text-decoration: none;
+  text-transform: none;
+  opacity: .85;
+  color: #6c7378;
+}
+#WhiteNav a:focus {
+  outline: thin dotted white;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: 7px;
+}
+#WhiteNav .nav-item {
+  position: relative;
+}
+#WhiteNav .nav-item.account:before,
+#WhiteNav .nav-item.security:before,
+#WhiteNav .nav-item.paymentsTab:before,
+#WhiteNav .nav-item.notifications:before {
+  content: '';
+}
+#WhiteNav .white-nav.active {
+  border-bottom: 3px solid #009cde;
+}
+#WhiteNav .white-nav:before {
+  content: '';
+}
+#WhiteNav .white-nav.active:after {
+  border-width: 0px;
+}
+@media (max-width: 640px) {
+  .ellipsis {
+    white-space: normal;
+  }
+  .nav {
+    overflow-y: hidden;
+  }
+  .nav ul {
+    width: 25.688em;
+  }
+  .nav-item:after {
+    display: none;
+  }
+}
+/**
+ * @fileOverview Styles for settings (responsive)
+ * @name responsive-settings
+ * @author novalina
+ * @tested Chrome, FF, IE, Safari, iOS
+ */
+@media (max-width: 1024px) {
+  .nav ul {
+    padding-left: 15px;
+  }
+  .links a {
+    display: inline-block;
+  }
+  .links .icon {
+    display: block;
+  }
+  .links .text {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+  .add .icon,
+  .edit .icon {
+    background: url("https://www.paypalobjects.com/webstatic/sprite/sprite_settings_glyphs.png") no-repeat 0 0;
+    width: 19px;
+    height: 21px;
+  }
+  .delete .icon {
+    background: url("https://www.paypalobjects.com/webstatic/sprite/sprite_settings_glyphs.png") no-repeat 0 -69px;
+    width: 17px;
+    height: 22px;
+  }
+  .confirm .icon:before {
+    content: "\e519";
+    float: left;
+    margin-top: -12px;
+    color: #555555;
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+/* tablets - portrait */
+@media (max-width: 768px) {
+  /* Need to set it 3 times to get the needed specificity */
+  .mainContents.mainContents.mainContents {
+    padding-top: 0px;
+  }
+  .settings .nav ul {
+    padding-left: 9px;
+  }
+  .settings .nav li {
+    padding: 0 9px;
+    text-align: center;
+  }
+  .settings .container {
+    padding: 1.5em 1.5em;
+  }
+  .settings .container p.modify {
+    bottom: 0;
+  }
+  .settings .setPrimary {
+    display: none;
+  }
+  .settings .addresses .modify .delete {
+    border-right: none;
+  }
+  .settings .section {
+    width: 100%;
+    margin-left: 0;
+  }
+  .settings .panel {
+    margin: 0;
+  }
+  .settings .notifications .header {
+    margin-top: 20px;
+  }
+  .settings .emailList,
+  .settings .phoneList {
+    width: 100%;
+  }
+  .settings .emailList .icon-email {
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .settings .emailList .icon-email:before {
+    margin-top: 17px;
+  }
+  .settings .phoneList .contact {
+    padding-left: 72px;
+  }
+  .settings .phoneList .icon-phone {
+    padding-left: 14px;
+  }
+  .settings .phoneList .icon-phone:before {
+    margin-top: 17px;
+  }
+  .settings .category,
+  .settings .notificationList {
+    width: 100%;
+    margin-left: 0;
+  }
+  .settings .notifications .container {
+    padding: 0;
+  }
+  .settings .notifications .section {
+    padding: 1.25em 1em;
+  }
+  .settings h2.x-large {
+    font-size: 1.3714285714285714em;
+    font-size: 1.5rem;
+    line-height: 0.875em;
+  }
+  .travelProfile .col-md-8 {
+    padding-bottom: 0;
+  }
+  .theoverpanel p {
+    margin: 1em 0;
+  }
+  .theoverpanel .active.confirm-email .confirm,
+  .theoverpanel .active.confirm-email .send,
+  .theoverpanel .active.confirm-email .done {
+    left: 0px;
+    top: 0px;
+  }
+  .theoverpanel .changeEmail {
+    margin-top: 40px;
+  }
+  .securityKeys-row {
+    padding-bottom: 4em;
+  }
+  .confirmAlert .icon {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .messengerCheckbox {
+    padding-left: 24px;
+  }
+  .theoverpanel .overpanel-wrapper {
+    width: 100%;
+  }
+  .theoverpanel .overpanel-content {
+    padding: 20px;
+  }
+}
+@media (max-width: 479px) {
+  .messengerCheckbox {
+    margin: 18px 0;
+  }
+  .theoverpanel .overpanel-wrapper {
+    width: 100%;
+  }
+  .theoverpanel .overpanel-content {
+    padding: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .settings #WhiteNav {
+    height: 98px;
+  }
+  .settings #WhiteNav ul {
+    padding-left: 12px;
+    margin-left: 0px;
+    flex-wrap: wrap;
+    height: 48px;
+    width: 96%;
+  }
+  .settings #WhiteNav ul h2 {
+    flex-basis: 100%;
+    height: 48px;
+    padding-top: 10px;
+  }
+  .settings #WhiteNav li {
+    padding: 0 9px;
+    height: 52px;
+    text-align: center;
+  }
+  .settings #WhiteNav li.active a {
+    margin-top: 3px;
+  }
+  .settings #WhiteNav .first {
+    padding-left: 8px;
+  }
+}
+@media (min-width: 667px) and (max-width: 767px) {
+  #WhiteNav ul {
+    width: 620px;
+  }
+  #WhiteNav #pageHeader {
+    display: none;
+  }
+}
+@media (max-width: 320px) {
+  #WhiteNav ul {
+    width: 360px !important;
+    overflow-x: auto;
+    height: 97px !important;
+  }
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  #WhiteNav ul {
+    width: 360px !important;
+    overflow-x: auto;
+    height: 97px !important;
+  }
+}

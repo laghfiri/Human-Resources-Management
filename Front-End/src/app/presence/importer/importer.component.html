@@ -1,0 +1,83 @@
+<app-nav-bar></app-nav-bar>
+<div >
+  <div class="header-tool">
+    <br>
+    <div style="text-align: center">
+      <img src="../../../assets/untitled.svg" width="128px">
+      <h4>Importation de fichier Pointage</h4>
+
+    </div>
+    <hr class="separator">
+  </div>
+
+  <br>
+
+  <div class="container" >
+
+    <div class="panel panel-default">
+
+      <div class="panel-title" style="text-align: center;font-weight: 500;color: #3f51b5;">Importation des donnés de pointage</div>
+      <div class="panel-body">
+
+          <div class="col-sm-12">
+            <div class="col-padding" style="text-align: center">
+
+              <br>
+
+              <label class="btn btn-default" style="    display: inline-flex;align-items: center;margin-top: 0.3em;margin-right: 5px;cursor: pointer" >
+                <label for="file_input"><i class="material-icons">file_upload</i></label>
+                <input type="file" id="file_input" (change)="selectFile($event)"  style="display:none" accept=".xlsx" multiple="false"/>
+                <label for="file_input" *ngIf="!selectedFiles" style="margin-left: 10px;"> Aucune fichier sélectionez</label>
+                <label for="file_input"  *ngIf="selectedFiles" style="margin-left: 10px;"> {{selectedFiles.name}}</label>
+              </label>
+              <button mat-raised-button color="primary" *ngIf="selectedFiles"
+                      (click)="onFileChange()">
+                <i class="fas fa-play fa-lg"></i> commencer
+              </button>
+            </div>
+            <hr class="separator" width="50%" style="border-color: #ccc;">
+            <div   style="text-align: center" *ngIf="!dataLoaded">
+
+              <mat-spinner style="margin:0 auto;"></mat-spinner>
+              <h5 style="color: #0f4b9f">importation en cours...</h5>
+            </div>
+
+
+            <div id="no-more-tables"  *ngIf="dataLoaded && show">
+              <h4 style="text-align: center;color: #1ca64c">Importation terminé avec succes!</h4>
+              <hr class="separator" width="50%" style="border-color: #ccc;" >
+              <h4 style="text-align: center"> Les donneés importé </h4>
+              <table class="table table-hover table-striped table-bordered nowrap" style="margin-top: 10px;width:100%">
+                <thead>
+                <tr>
+                  <th scope="col">personne_id</th>
+                  <th scope="col">date de Presence</th>
+                  <th scope="col">Heure de Debut Premiere Post </th>
+                  <th scope="col">Heure de Fin Premiere Post </th>
+                  <th scope="col">Heure de Debut Deuxieme Post </th>
+                  <th scope="col">Heure de Fin Deuxieme Post </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let p of presences">
+                  <td data-title="nom">{{p.personne_id}}</td>
+                  <td data-title="dateP">{{p.datePresence}}</td>
+                  <td data-title="heureD">{{p.heureDpre}}</td>
+                  <td data-title="heureF">{{p.heureFpre}}</td>
+                  <td data-title="heureD">{{p.heureDdeu}}</td>
+                  <td data-title="heureF">{{p.heureFdeu}}</td>
+
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

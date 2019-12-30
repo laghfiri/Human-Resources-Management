@@ -1,0 +1,205 @@
+<div class="header-tool">
+  <br>
+  <div style="text-align: center">
+    <img src="../../../assets/icons8-request-service-64.png" >
+    <h4>Demandé Conges</h4>
+
+  </div>
+  <hr class="separator">
+</div>
+<br>
+<div class="container" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Demander Congés
+    </div>
+    <div class="panel-body">
+
+      <mat-horizontal-stepper [linear]="true" #stepper style="font-family: PayPal-Sans;">
+        <mat-step [stepControl]="firstFormGroup" [editable]="true">
+          <div style="text-align: center;">
+
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Information Personelle</ng-template>
+              <div class="col-md-12 ">
+                <div class="note">
+                  <h4 style="color: crimson;text-align: center"> Notes: </h4>
+                  <div class="note-text">
+                    <p> - les conditions citez en dessous sont appliqué :</p>
+                    <p>* condition1</p>
+                    <p>* conditions2</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-md-offset-4">
+                <div class="notifications" *ngIf="!IsPossible"><p class="notification notification-critical"
+                                                                  role="alert">
+                  Un autre employee dans votre service est déja en congé.</p></div>
+                <div class="notifications" *ngIf="errorSolde"><p class="notification notification-critical"
+                                                                  role="alert">
+                  Votre solde congé est insuffisant, votre solde et de {{25-NombreJourDejaPris*1 -1}} Jour(s).</p></div>
+                <div class="notifications" *ngIf="holdError"><p class="notification notification-critical"
+                                                                  role="alert">
+                  Vous avez séléctionez un jour feriér.</p></div>
+                <div class="notifications" *ngIf="nbr<0"><p class="notification notification-critical" role="alert">
+                  Vérifiez votre saisie et réessayez.</p></div>
+                <div class="notifications" *ngIf="calc && nbr>0" style="width: 340px;"><p
+                  class="notification notification-success"> La duré
+                  du congé selectioné: <strong>{{nbr}} Jour(s)</strong></p></div>
+                <div class="notifications" *ngIf="nbr==0"><p class="notification notification-success"> La duré du
+                  congé selectioné: <strong>1 Jour(s)</strong></p></div>
+
+              </div>
+              <div class="form-group" style="margin-top: 8px">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <input matInput [matDatepicker]="picker" formControlName="DateDebut"
+                           placeholder="Date Début Congés" (dateChange)="verifieStart()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker ngDefaultControl></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <input matInput [matDatepicker]="picker1" formControlName="DateFin"
+                           placeholder="Date Fin Congés"
+                           (dateChange)="NbrJour()">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+
+                  <mat-form-field class="example-form-field">
+                    <mat-select placeholder="Type congés" formControlName="type" required>
+                      <mat-option>--</mat-option>
+                      <mat-option value="maladie">Maladie</mat-option>
+                      <mat-option value="mariage">Mariage</mat-option>
+                      <mat-option value="deces">Déces</mat-option>
+                    </mat-select>
+                    <mat-error>Type de congés est requis</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <mat-form-field class="example-form-field">
+                    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="col-md-12">
+              <button mat-raised-button color="primary" disabled matStepperNext *ngIf="!IsPossible">Suivant</button>
+              <button mat-raised-button color="primary" matStepperNext *ngIf="IsPossible">Suivant</button>
+
+            </div>
+          </div>
+        </mat-step>
+        <mat-step [editable]="true">
+          <ng-template matStepLabel>Joindre un attachement</ng-template>
+          <div>
+            <h5 style="text-align: center">Séléctionez un attachement (image ou bien document) . MaxSize= 10M</h5>
+          </div>
+          <div style="text-align: center">
+            <div class="col-md-6 col-md-offset-3">
+              <div *ngIf="currentFileUpload">
+
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                     attr.aria-valuenow="{{progress.percentage}}"
+                     aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                  {{progress.percentage}}%
+                </div>
+              </div>
+
+              <label style="color: #1ca64c" *ngIf="progress.percentage==100">Le document est bien chargé.</label>
+              <br>
+              <label class="btn btn-default">
+                <input type="file" (change)="selectFile($event)">
+              </label>
+              <button style="margin-right: 10px" mat-raised-button [disabled]="!selectedFiles"
+                      (click)="upload()">Upload
+              </button>
+              <br>
+              <br>
+
+              <div style="text-align: center">
+                <button mat-raised-button matStepperPrevious>Précédente</button>
+                <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Terminé</ng-template>
+          <h3> Dernière étape : confirmation ! </h3>
+          <div style="text-align: center">
+            <i class="far fa-calendar-plus fa-5x" style="color: #0e74a6;"></i>
+            <h5> Information du demande :</h5>
+          </div>
+          <div style="text-align: left;text-indent: 82px">
+
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check fa-w-16 "> Date Debut : <strong>{{start}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Date Fin : <strong>{{end}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Duré : <strong>{{nbr}} Jours</strong></i>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Type congés : <strong>{{type.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="description.value!=''">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Description : <strong>{{description.value}}</strong></i>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="attachement!=null">
+
+              <div class="col-md-6">
+                <i class="fas fa-check"> Pièces Join : <strong>{{attachement}}</strong></i>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div style="text-align: center" class="col-md-12">
+            <button mat-raised-button matStepperPrevious class="spacer">Précédent</button>
+            <button mat-raised-button (click)="stepper.reset()" class="spacer">Vider les champs</button>
+            <button mat-raised-button color="primary" (click)="demander()" class="spacer">Confirmer</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div style="text-align: right">
+        <button mat-raised-button  style="text-align: right">
+          Annuler
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
