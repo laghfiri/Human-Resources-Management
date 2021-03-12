@@ -43,7 +43,7 @@
     "highcharts": "^8.0.0",
     "highcharts-angular": "^2.4.0",
     "jquery": "^3.3.1",
-    "jspdf": "^1.4.0",
+    "jspdf": "^2.3.1",
     "moment": "^2.22.1",
     "moment-business-days": "^1.0.6",
     "ng2-charts": "^2.2.3",
